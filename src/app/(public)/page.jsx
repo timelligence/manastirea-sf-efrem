@@ -59,25 +59,6 @@ const MOASTE_PREVIEW = [
   },
 ];
 
-const PROGRAM_SLUJBE = [
-  {
-    text: "Sfânta Liturghie",
-    detaliu: "Miercuri, Vineri, Sâmbătă și Duminică, ora 09:00",
-  },
-  {
-    text: "Vecernia zilnică",
-    detaliu: "La ora 17:00",
-  },
-  {
-    text: "Paraclisul Maicii Domnului",
-    detaliu: "Duminica, la ora 17:00",
-  },
-  {
-    text: "Privegheri la praznicele mari",
-    detaliu: "Anunțate pe pagina de Facebook",
-  },
-];
-
 const CUVINTE_RECENTE = [
   {
     titlu: "Sfântul Dionisie cel Smerit — românul care a sfințit Apusul",
@@ -223,38 +204,30 @@ export default function HomePage() {
 
 
       {/* ─────────────────────────────────────────────────────────
-          3. RÂNDUIALA SĂPTĂMÂNII
+          3. RÂNDUIALA SĂPTĂMÂNII — doar Duminica confirmată
           ───────────────────────────────────────────────────────── */}
       <section id="program-scurt" className="py-20 md:py-28">
         <div className="mx-auto max-w-3xl px-6">
           <div className="bg-secondary border border-border p-8 md:p-14">
             <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.12em] text-olive text-center mb-3">
-              Programul de zi cu zi
+              Programul slujbelor
             </p>
             <h2 className="font-heading text-[1.75rem] md:text-[2.25rem] text-text text-center mb-10">
               Rânduiala săptămânii
             </h2>
 
-            <ul className="space-y-5">
-              {PROGRAM_SLUJBE.map(({ text, detaliu }) => (
-                <li key={text} className="flex items-start gap-4">
-                  <Cross
-                    size={16}
-                    className="text-gold shrink-0 mt-1"
-                  />
-                  <div>
-                    <span className="text-text text-[1.0625rem] font-body font-500">
-                      {text}
-                    </span>
-                    {detaliu && (
-                      <span className="block text-[0.9375rem] text-text-secondary mt-1">
-                        {detaliu}
-                      </span>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <p className="text-text text-[1.0625rem] leading-relaxed text-center max-w-none">
+              Sfânta Liturghie se săvârșește duminica de la ora 9. Programul
+              detaliat al celorlalte zile, precum și al privegherilor de
+              praznice, va fi actualizat în curând. Pentru detalii sunați la{" "}
+              <a
+                href="tel:+40763785579"
+                className="text-grena font-body font-500 hover:text-text transition-colors duration-200"
+              >
+                +40 763 785 579
+              </a>
+              .
+            </p>
 
             <div className="mt-10 pt-8 border-t border-border text-center">
               <Link

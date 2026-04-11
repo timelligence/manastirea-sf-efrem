@@ -9,56 +9,15 @@ export const revalidate = 3600; // ISR: revalidare la 1 oră
 export const metadata = {
   title: "Programul Sfintelor Slujbe",
   description:
-    "Programul săptămânal al sfintelor slujbe și praznicele apropiate la Mănăstirea Sf. Dionisie Exiguul și Sf. Efrem cel Nou, Târgușor, Constanța.",
+    "Programul sfintelor slujbe la Mănăstirea Sf. Dionisie Exiguul și Sf. Efrem cel Nou, Târgușor, Constanța. Sfânta Liturghie duminica de la ora 9.",
   alternates: { canonical: "/program-slujbe" },
 };
 
-/* ─── Constante ─── */
-
-const ZILELE = [
-  "Duminică", "Luni", "Marți", "Miercuri", "Joi", "Vineri", "Sâmbătă",
-];
-
-// Ordine afișare: Lu-Mi-Vi-Du / Ma-Jo-Sâ (busier days left)
-const COL_STANGA = [1, 3, 5, 0]; // Luni, Miercuri, Vineri, Duminică
-const COL_DREAPTA = [2, 4, 6];   // Marți, Joi, Sâmbătă
-
-/* ─── Date fallback (când Supabase nu e configurat) ─── */
-
-const FALLBACK_SLUJBE = [
-  { zi_saptamana: 0, ora: "09:00", denumire: "Ceasurile III, VI și Sfânta Liturghie", tip: "liturghie" },
-  { zi_saptamana: 0, ora: "17:00", denumire: "Paraclisul Maicii Domnului", tip: "paraclis" },
-  { zi_saptamana: 1, ora: "17:00", denumire: "Vecernia", tip: "vecernie" },
-  { zi_saptamana: 2, ora: "17:00", denumire: "Vecernia", tip: "vecernie" },
-  { zi_saptamana: 3, ora: "09:00", denumire: "Ceasurile III, VI și Sfânta Liturghie", tip: "liturghie" },
-  { zi_saptamana: 3, ora: "17:00", denumire: "Vecernia", tip: "vecernie" },
-  { zi_saptamana: 4, ora: "17:00", denumire: "Vecernia", tip: "vecernie" },
-  { zi_saptamana: 5, ora: "09:00", denumire: "Ceasurile III, VI și Sfânta Liturghie", tip: "liturghie" },
-  { zi_saptamana: 5, ora: "17:00", denumire: "Vecernia", tip: "vecernie" },
-  { zi_saptamana: 6, ora: "09:00", denumire: "Ceasurile III, VI și Sfânta Liturghie", tip: "liturghie" },
-  { zi_saptamana: 6, ora: "17:00", denumire: "Vecernia", tip: "vecernie" },
-];
+/* ─── Date fallback praznice (când Supabase nu e configurat) ─── */
 
 const FALLBACK_PRAZNICE = [];
 
 /* ─── Data fetching ─── */
-
-async function getSlujbe() {
-  try {
-    if (!process.env.NEXT_PUBLIC_SUPABASE_URL) return FALLBACK_SLUJBE;
-    const { createClient } = await import("@/lib/supabase/server");
-    const supabase = await createClient();
-    const { data, error } = await supabase
-      .from("slujbe")
-      .select("*")
-      .eq("activ", true)
-      .order("ordine", { ascending: true });
-    if (error) throw error;
-    return data || FALLBACK_SLUJBE;
-  } catch {
-    return FALLBACK_SLUJBE;
-  }
-}
 
 async function getPraznice() {
   try {
@@ -95,45 +54,7 @@ function formatData(dateStr) {
   });
 }
 
-function groupByZi(slujbe) {
-  const grouped = {};
-  for (let i = 0; i < 7; i++) grouped[i] = [];
-  slujbe.forEach((s) => grouped[s.zi_saptamana].push(s));
-  return grouped;
-}
-
 /* ─── Componente locale ─── */
-
-function ZiSection({ zi, slujbe }) {
-  return (
-    <div className="mb-8">
-      <h3 className="text-grena mb-3">{ZILELE[zi]}</h3>
-      {slujbe.length === 0 ? (
-        <p className="text-text-muted text-[0.875rem]">—</p>
-      ) : (
-        <ul className="space-y-2">
-          {slujbe.map((s, i) => (
-            <li key={i} className="flex gap-3 items-baseline">
-              <span className="text-olive font-body font-600 text-[0.875rem] tabular-nums w-14 shrink-0">
-                {formatOra(s.ora)}
-              </span>
-              <div>
-                <span className="text-text text-[0.9375rem] font-body">
-                  {s.denumire}
-                </span>
-                {s.detalii && (
-                  <span className="block text-[0.8125rem] text-text-muted mt-0.5">
-                    {s.detalii}
-                  </span>
-                )}
-              </div>
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
 
 function PraznicCard({ praznic }) {
   return (
@@ -190,8 +111,7 @@ function PraznicCard({ praznic }) {
 /* ─── PAGINA ─── */
 
 export default async function ProgramSlujbePage() {
-  const [slujbe, praznice] = await Promise.all([getSlujbe(), getPraznice()]);
-  const grouped = groupByZi(slujbe);
+  const praznice = await getPraznice();
 
   return (
     <>
@@ -212,44 +132,38 @@ export default async function ProgramSlujbePage() {
             isHram: p.este_hram,
           })}
         />
-      ))}  
-      {/* ═══ INTRO ═══ */}
-      <section className="py-12 md:py-16">
-        <div className="container-page max-w-[65ch]">
-          <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.12em] text-olive mb-3">
-            Rânduiala mănăstirii
+      ))}
+
+      {/* ═══ SFÂNTA LITURGHIE — DOAR DUMINICA CONFIRMATĂ ═══ */}
+      <section className="py-16">
+        <div className="mx-auto max-w-3xl px-6 text-center">
+          <p className="text-sm uppercase tracking-[0.2em] text-[#4A5D3A] mb-3">
+            Programul slujbelor
           </p>
-          <h1>Programul Sfintelor Slujbe</h1>
-          <p className="mt-4">
-            Sfânta Liturghie se săvârșește de patru ori pe săptămână — miercuri,
-            vineri, sâmbătă și duminică. Vecernia este zilnică, la ora 17:00.
-            În posturi și sărbători, programul se poate modifica; praznicele
-            apropiate sunt listate mai jos.
-          </p>
-        </div>
-      </section>
+          <h2 className="font-serif text-3xl md:text-4xl text-[#2B1F14] mb-8">
+            Sfânta Liturghie
+          </h2>
 
-      <CrossSeparator />
+          <div className="bg-[#EFE8D8] border border-[#C9BFA8] p-10 mb-10">
+            <p className="font-serif text-2xl text-[#2B1F14] mb-2">Duminica</p>
+            <p className="text-xl text-[#6B1D2A] mb-6">ora 09:00</p>
+            <p className="text-[#5C4A35] leading-relaxed">
+              Programul detaliat al celorlalte zile, precum și al privegherilor
+              de praznice, va fi actualizat în curând cu binecuvântarea obștii.
+            </p>
+          </div>
 
-      {/* ═══ PROGRAM SĂPTĂMÂNAL ═══ */}
-      <section id="program-saptamanal" className="py-8 md:py-12">
-        <div className="container-page">
-          <h2 className="mb-8">Program săptămânal</h2>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12">
-            {/* Coloana stânga: Lu, Mi, Vi, Du */}
-            <div>
-              {COL_STANGA.map((zi) => (
-                <ZiSection key={zi} zi={zi} slujbe={grouped[zi]} />
-              ))}
-            </div>
-
-            {/* Coloana dreapta: Ma, Jo, Sâ */}
-            <div>
-              {COL_DREAPTA.map((zi) => (
-                <ZiSection key={zi} zi={zi} slujbe={grouped[zi]} />
-              ))}
-            </div>
+          <div className="border-l-4 border-[#4A5D3A] bg-[#F5F1E8] p-6 text-left">
+            <p className="text-[#5C4A35] leading-relaxed">
+              <strong className="text-[#2B1F14]">Pentru certitudine</strong>{" "}
+              privind programul slujbelor, vă rugăm să sunați la mănăstire la
+              numărul <a href="tel:+40763785579" className="text-[#6B1D2A] hover:underline">+40 763 785 579</a>.
+            </p>
+            <p className="text-[#5C4A35] leading-relaxed mt-4">
+              Mănăstirea este deschisă pentru închinare zilnic între orele
+              <strong> 08:00–13:00</strong> și <strong>16:00–19:00</strong>.
+              Între orele 13:00 și 16:00 este timpul de liniște și rugăciune al obștii.
+            </p>
           </div>
         </div>
       </section>
