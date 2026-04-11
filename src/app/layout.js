@@ -88,7 +88,7 @@ const organizationSchema = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="ro">
+    <html lang="ro" data-scroll-behavior="smooth">
       <head>
         {/* Preload fonturi critice */}
         <link
