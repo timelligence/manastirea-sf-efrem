@@ -3,6 +3,7 @@ import Link from "next/link";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import Cross from "@/components/ui/Cross";
 import { CrossSeparator } from "@/components/ui/Cross";
+import DraftBanner from "@/components/ui/DraftBanner";
 import { getMdxBySlug, getAllSlugs, getAllMdx, sortByOrdine } from "@/lib/mdx";
 import { mdxComponents } from "@/components/mdx/MdxComponents";
 import StructuredData, { buildBreadcrumbList } from "@/components/StructuredData";
@@ -75,6 +76,8 @@ export default async function MoastePage({ params }) {
           <p className="mt-3 text-text-secondary text-[1rem] max-w-none">
             {frontmatter.descriere_scurta}
           </p>
+
+          {frontmatter.draft !== false && <DraftBanner tip="biografie" />}
         </div>
       </section>
 

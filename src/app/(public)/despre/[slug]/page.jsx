@@ -5,6 +5,7 @@ import Cross from "@/components/ui/Cross";
 import { CrossSeparator } from "@/components/ui/Cross";
 import { getMdxBySlug, getAllSlugs } from "@/lib/mdx";
 import { mdxComponents } from "@/components/mdx/MdxComponents";
+import DraftBanner from "@/components/ui/DraftBanner";
 
 export async function generateStaticParams() {
   return getAllSlugs("despre").map((slug) => ({ slug }));
@@ -88,6 +89,8 @@ export default async function DesprePage({ params }) {
               </span>
             )}
           </div>
+
+          {frontmatter.draft !== false && <DraftBanner tip="biografie" />}
         </div>
       </section>
 

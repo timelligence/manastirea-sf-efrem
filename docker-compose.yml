@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  manastire-web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: manastire-web
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:3015:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_SITE_URL=https://manastire.clickstanga.ro
+      - NEXT_PUBLIC_SITE_STATUS=draft

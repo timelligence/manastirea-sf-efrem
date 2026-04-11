@@ -1,0 +1,13 @@
+node_modules
+.next
+.git
+.env*.local
+.env
+.vscode
+.idea
+_context
+.DS_Store
+*.log
+npm-debug.log*
+docs
+deployment

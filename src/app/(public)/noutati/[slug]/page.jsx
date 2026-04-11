@@ -14,6 +14,7 @@ import {
   CATEGORII_CUVINTE,
 } from "@/lib/mdx";
 import { mdxComponents } from "@/components/mdx/MdxComponents";
+import DraftBanner from "@/components/ui/DraftBanner";
 
 /* ═══════════════════════════════════════════════════════════════
    STATIC PARAMS
@@ -149,6 +150,10 @@ export default async function CuvantPage({ params }) {
               </>
             )}
           </div>
+
+          {frontmatter.draft !== false && (
+            <DraftBanner tip={frontmatter.categorie === "marturii" ? "marturie" : "text"} />
+          )}
         </div>
       </section>
 

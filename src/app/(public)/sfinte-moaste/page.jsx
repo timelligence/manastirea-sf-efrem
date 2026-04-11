@@ -2,6 +2,7 @@ import Link from "next/link";
 import Cross from "@/components/ui/Cross";
 import { CrossSeparator } from "@/components/ui/Cross";
 import Card from "@/components/ui/Card";
+import { DraftBadge } from "@/components/ui/DraftBanner";
 import { getAllMdx, sortByOrdine } from "@/lib/mdx";
 import StructuredData, { buildBreadcrumbList } from "@/components/StructuredData";
 
@@ -54,7 +55,7 @@ export default function SfinteMoastePage() {
         <div className="container-page">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {items.map(({ frontmatter, slug }) => (
-              <MoasteCard key={slug} slug={slug} {...frontmatter} />
+              <MoasteCard key={slug} slug={slug} draft={frontmatter.draft} {...frontmatter} />
             ))}
           </div>
         </div>
@@ -90,7 +91,7 @@ export default function SfinteMoastePage() {
 
 /* ─── Card moaste ─── */
 
-function MoasteCard({ slug, nume, praznuire, tip, descriere_scurta, ajutor_pentru }) {
+function MoasteCard({ slug, nume, praznuire, tip, descriere_scurta, ajutor_pentru, draft }) {
   const isIcon = tip === "icoana";
 
   return (
@@ -100,6 +101,7 @@ function MoasteCard({ slug, nume, praznuire, tip, descriere_scurta, ajutor_pentr
         <span className="inline-block text-[0.6875rem] font-body font-500 uppercase tracking-[0.1em] text-olive bg-primary px-2 py-0.5 rounded-[3px] border border-border mb-3">
           {isIcon ? "Icoană" : "Moaște"}
         </span>
+        {draft !== false && <span className="ml-2"><DraftBadge /></span>}
 
         <h2 className="text-lg font-heading font-600 text-text mb-1">
           <Link

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Cross from "@/components/ui/Cross";
 import { CrossSeparator } from "@/components/ui/Cross";
+import { DraftBadge } from "@/components/ui/DraftBanner";
 import StructuredData, { buildBreadcrumbList } from "@/components/StructuredData";
 import {
   getPublishedCuvinte,
@@ -139,16 +140,19 @@ export default async function NoutatiPage({ searchParams }) {
                     </p>
                   )}
 
-                  {/* Categorie */}
-                  {frontmatter.categorie && (
-                    <Link
-                      href={`/noutati?categorie=${frontmatter.categorie}`}
-                      className="inline-block text-[0.6875rem] font-body font-500 uppercase tracking-[0.08em] text-olive bg-secondary px-2 py-0.5 rounded-[3px] border border-border hover:border-border-hover transition-colors"
-                    >
-                      {CATEGORII_CUVINTE[frontmatter.categorie] ||
-                        frontmatter.categorie}
-                    </Link>
-                  )}
+                  {/* Categorie + Draft badge */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    {frontmatter.categorie && (
+                      <Link
+                        href={`/noutati?categorie=${frontmatter.categorie}`}
+                        className="inline-block text-[0.6875rem] font-body font-500 uppercase tracking-[0.08em] text-olive bg-secondary px-2 py-0.5 rounded-[3px] border border-border hover:border-border-hover transition-colors"
+                      >
+                        {CATEGORII_CUVINTE[frontmatter.categorie] ||
+                          frontmatter.categorie}
+                      </Link>
+                    )}
+                    {frontmatter.draft !== false && <DraftBadge />}
+                  </div>
                 </li>
               ))}
             </ul>
