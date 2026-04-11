@@ -87,7 +87,7 @@ const placeOfWorshipSchema = {
   },
   foundingDate: "2011",
   image: "/images/manastire-hero.jpg",
-  url: "https://manastirea-targusor.ro/viziteaza",
+  url: "https://manastireasfintilordionisiesiefrem.ro/viziteaza",
 };
 
 const viziteazaFAQ = [

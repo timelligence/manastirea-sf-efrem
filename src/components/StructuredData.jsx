@@ -16,7 +16,7 @@ export default function StructuredData({ data }) {
    SCHEMA BUILDERS — funcții pure care generează obiecte JSON-LD
    ═══════════════════════════════════════════════════════════════ */
 
-const BASE_URL = "https://manastirea-targusor.ro";
+const BASE_URL = "https://manastireasfintilordionisiesiefrem.ro";
 const ORG_NAME = "Mănăstirea Sfinților Dionisie Exiguul și Efrem cel Nou";
 
 /** PlaceOfWorship — homepage, /viziteaza */

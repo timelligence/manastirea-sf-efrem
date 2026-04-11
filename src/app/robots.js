@@ -28,6 +28,6 @@ export default function robots() {
         allow: "/",
       },
     ],
-    sitemap: "https://manastirea-targusor.ro/sitemap.xml",
+    sitemap: "https://manastireasfintilordionisiesiefrem.ro/sitemap.xml",
   };
 }

@@ -6,7 +6,7 @@ import "./globals.css";
    ═══════════════════════════════════════════════════════════════ */
 
 export const metadata = {
-  metadataBase: new URL("https://manastirea-targusor.ro"),
+  metadataBase: new URL("https://manastireasfintilordionisiesiefrem.ro"),
   title: {
     default: "Mănăstirea Sfinților Dionisie Exiguul și Efrem cel Nou",
     template: "%s · Mănăstirea Târgușor",
@@ -66,8 +66,8 @@ const organizationSchema = {
     "Mănăstirea Sf. Efrem cel Nou Târgușor",
     "Mănăstirea Târgușor",
   ],
-  url: "https://manastirea-targusor.ro",
-  logo: "https://manastirea-targusor.ro/images/og-default.png",
+  url: "https://manastireasfintilordionisiesiefrem.ro",
+  logo: "https://manastireasfintilordionisiesiefrem.ro/images/og-default.png",
   telephone: "+40763785579",
   address: {
     "@type": "PostalAddress",

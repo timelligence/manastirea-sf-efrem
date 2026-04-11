@@ -1,6 +1,6 @@
 import { getAllSlugs, getPublishedCuvinte } from "@/lib/mdx";
 
-const BASE_URL = "https://manastirea-targusor.ro";
+const BASE_URL = "https://manastireasfintilordionisiesiefrem.ro";
 
 export default async function sitemap() {
   /* ─── Pagini statice ─── */
