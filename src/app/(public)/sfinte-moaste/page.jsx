@@ -74,7 +74,7 @@ export default function SfinteMoastePage() {
                   Moaștele și icoana sunt așezate spre închinare în paraclisul
                   mănăstirii. Închinarea este posibilă zilnic între orele{" "}
                   <strong className="font-500">08:00–13:00</strong> și{" "}
-                  <strong className="font-500">16:00–19:00</strong>.
+                  <strong className="font-500">16:00–20:00</strong>.
                 </p>
                 <p className="mt-2 text-text-muted text-[0.8125rem] max-w-none">
                   În zilele de praznic și la hramuri, paraclisul rămâne deschis

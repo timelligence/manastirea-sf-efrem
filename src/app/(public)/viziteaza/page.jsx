@@ -78,7 +78,7 @@ const placeOfWorshipSchema = {
         "Sunday",
       ],
       opens: "16:00",
-      closes: "19:00",
+      closes: "20:00",
     },
   ],
   founder: {
@@ -94,7 +94,7 @@ const viziteazaFAQ = [
   {
     question: "Care este programul de vizitare al mănăstirii?",
     answer:
-      "Mănăstirea este deschisă zilnic pentru închinare între 08:00–13:00 și 16:00–19:00. Între 13:00 și 16:00 este timpul de liniște al obștii.",
+      "Mănăstirea este deschisă zilnic pentru închinare între 08:00–13:00 și 16:00–20:00. Între 13:00 și 16:00 este timpul de liniște al obștii. De hram și de unele sărbători, poarta este deschisă 08:00–20:00.",
   },
   {
     question: "Cum ajung la Mănăstirea Sf. Efrem cel Nou din Târgușor?",
@@ -266,7 +266,7 @@ export default function ViziteazaPage() {
               <div className="w-px h-10 bg-border" />
               <div>
                 <p className="text-[1.75rem] font-heading font-600 text-text leading-tight">
-                  16:00 – 19:00
+                  16:00 – 20:00
                 </p>
               </div>
             </div>
@@ -281,6 +281,18 @@ export default function ViziteazaPage() {
                 și <strong className="font-500 text-text">16:00</strong> este
                 timpul de liniște și rugăciune al obștii. Vă rugăm să respectați
                 această rânduială.
+              </p>
+            </div>
+          </div>
+
+          {/* Notă sărbători */}
+          <div className="p-4 rounded-[4px] border-l-3 border-grena bg-primary mt-3">
+            <div className="flex gap-3 items-start">
+              <Cross size={14} className="text-grena shrink-0 mt-0.5" />
+              <p className="text-text-secondary text-[0.875rem] max-w-none">
+                De hram și de unele sărbători, mănăstirea este deschisă{" "}
+                <strong className="font-500 text-grena">08:00–20:00</strong>.
+                Se va anunța din timp când este deschisă poarta toată ziua.
               </p>
             </div>
           </div>

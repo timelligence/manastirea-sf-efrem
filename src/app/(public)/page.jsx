@@ -471,7 +471,10 @@ export default function HomePage() {
                         Program vizitare
                       </span>
                       <span className="block text-text-secondary text-[1rem] mt-1">
-                        Zilnic: 08:00–13:00 și 16:00–19:00
+                        Zilnic: 08:00–13:00 și 16:00–20:00
+                      </span>
+                      <span className="block text-text-muted text-[0.8125rem] mt-1">
+                        De hram și de sărbători: 08:00–20:00
                       </span>
                     </div>
                   </div>

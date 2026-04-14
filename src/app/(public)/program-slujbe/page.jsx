@@ -161,7 +161,7 @@ export default async function ProgramSlujbePage() {
             </p>
             <p className="text-[#5C4A35] leading-relaxed mt-4">
               Mănăstirea este deschisă pentru închinare zilnic între orele
-              <strong> 08:00–13:00</strong> și <strong>16:00–19:00</strong>.
+              <strong> 08:00–13:00</strong> și <strong>16:00–20:00</strong>.
               Între orele 13:00 și 16:00 este timpul de liniște și rugăciune al obștii.
             </p>
           </div>
@@ -202,11 +202,16 @@ export default async function ProgramSlujbePage() {
                 <p className="text-text text-[0.9375rem] font-body">
                   Mănăstirea este deschisă pentru închinare zilnic între orele{" "}
                   <strong className="font-500">08:00–13:00</strong> și{" "}
-                  <strong className="font-500">16:00–19:00</strong>.
+                  <strong className="font-500">16:00–20:00</strong>.
                 </p>
                 <p className="mt-2 text-text-muted text-[0.8125rem] max-w-none">
                   Între orele 13:00 și 16:00 este timpul de liniște și rugăciune
                   al obștii. Vă rugăm să respectați programul de odihnă.
+                </p>
+                <p className="mt-2 text-text-muted text-[0.8125rem] max-w-none">
+                  De hram și de unele sărbători, mănăstirea este deschisă{" "}
+                  <strong className="font-500 text-text">08:00–20:00</strong>.
+                  Se va anunța din timp când este deschisă poarta toată ziua.
                 </p>
               </div>
             </div>
