@@ -8,9 +8,9 @@ import StructuredData, {
   buildFAQPage,
 } from "@/components/StructuredData";
 
-// Coordonatele clădirii principale a mănăstirii (lângă râul Târgușor / DC81)
-const LAT = 44.4712;
-const LNG = 28.4735;
+// Coordonatele exacte ale clădirii principale a mănăstirii (lângă DC81)
+const LAT = 44.46904817252464;
+const LNG = 28.483380675144936;
 
 /* ─── SEO ─── */
 
@@ -220,7 +220,7 @@ export default function ViziteazaPage() {
           <MapWrapper
             lat={LAT}
             lng={LNG}
-            zoom={15}
+            zoom={16}
             className="h-[350px] md:h-[500px]"
           />
           <div className="mt-3 flex justify-end">

@@ -4,10 +4,10 @@ import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-// Coordonatele clădirii principale a mănăstirii (lângă râul Târgușor / DC81)
-const DEFAULT_LAT = 44.4712;
-const DEFAULT_LNG = 28.4735;
-const DEFAULT_ZOOM = 15;
+// Coordonatele exacte ale clădirii principale a mănăstirii (lângă DC81)
+const DEFAULT_LAT = 44.46904817252464;
+const DEFAULT_LNG = 28.483380675144936;
+const DEFAULT_ZOOM = 16;
 
 const TILE_URL = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 const TILE_ATTRIBUTION =
