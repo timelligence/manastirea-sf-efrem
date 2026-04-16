@@ -134,36 +134,143 @@ export default async function ProgramSlujbePage() {
         />
       ))}
 
-      {/* ═══ SFÂNTA LITURGHIE — DOAR DUMINICA CONFIRMATĂ ═══ */}
-      <section className="py-16">
-        <div className="mx-auto max-w-3xl px-6 text-center">
-          <p className="text-sm uppercase tracking-[0.2em] text-[#4A5D3A] mb-3">
+      {/* ═══ PROGRAMUL COMPLET AL SLUJBELOR ═══ */}
+      <section className="py-12 md:py-16">
+        <div className="mx-auto max-w-3xl px-6">
+          <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.12em] text-olive text-center mb-3">
             Programul slujbelor
           </p>
-          <h2 className="font-serif text-3xl md:text-4xl text-[#2B1F14] mb-8">
-            Sfânta Liturghie
+          <h2 className="font-heading text-[2rem] md:text-[2.5rem] text-text text-center mb-10">
+            Rânduiala Săptămânii
           </h2>
 
-          <div className="bg-[#EFE8D8] border border-[#C9BFA8] p-10 mb-10">
-            <p className="font-serif text-2xl text-[#2B1F14] mb-2">Duminica</p>
-            <p className="text-xl text-[#6B1D2A] mb-6">ora 09:00</p>
-            <p className="text-[#5C4A35] leading-relaxed">
-              Programul detaliat al celorlalte zile, precum și al privegherilor
-              de praznice, va fi actualizat în curând cu binecuvântarea obștii.
-            </p>
+          <div className="space-y-4">
+
+            {/* Dimineața */}
+            <div className="bg-secondary border border-border p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-3">
+                <Cross size={14} className="text-gold shrink-0" />
+                <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.1em] text-olive">
+                  Dimineața
+                </p>
+              </div>
+              <p className="font-heading text-[1.375rem] text-text mb-1">
+                07:00 — Utrenia, Ceasul 1
+              </p>
+              <p className="text-text-secondary text-[0.9375rem] max-w-none">
+                Marți, Joi și Sâmbătă se adaugă Sfânta Liturghie.
+              </p>
+            </div>
+
+            {/* Seara */}
+            <div className="bg-secondary border border-border p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-3">
+                <Cross size={14} className="text-gold shrink-0" />
+                <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.1em] text-olive">
+                  Seara
+                </p>
+              </div>
+              <p className="font-heading text-[1.375rem] text-text">
+                17:00 — Vecernia și Pavecernița Mică
+              </p>
+            </div>
+
+            {/* Sâmbăta seara și ajunuri */}
+            <div className="bg-secondary border border-border p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-3">
+                <Cross size={14} className="text-grena shrink-0" />
+                <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.1em] text-olive">
+                  Sâmbăta seara și în ajunul sărbătorilor mari
+                </p>
+              </div>
+              <p className="font-heading text-[1.375rem] text-text">
+                17:00 — Vecernia Mare, Litia, Utrenia
+              </p>
+            </div>
+
+            {/* Duminica și Sărbători */}
+            <div className="bg-secondary border border-grena/40 p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-3">
+                <Cross size={14} className="text-grena shrink-0" />
+                <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.1em] text-grena">
+                  Duminica și de Sărbători
+                </p>
+              </div>
+              <p className="font-heading text-[1.375rem] text-text mb-1">
+                09:00 — Ceasurile 3, 6, Dumnezeiasca Liturghie
+              </p>
+              <p className="font-heading text-[1.375rem] text-text">
+                17:00 — Paraclisul Maicii Domnului{" "}
+                <span className="font-heading italic text-[1.125rem] text-text-secondary">
+                  «Grabnic Ascultătoare»
+                </span>
+              </p>
+            </div>
+
+            {/* Prima Vineri din Lună */}
+            <div className="bg-secondary border border-border p-6 md:p-8">
+              <div className="flex items-center gap-3 mb-3">
+                <Cross size={14} className="text-gold shrink-0" />
+                <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.1em] text-olive">
+                  Prima Vineri din Lună
+                </p>
+              </div>
+              <p className="font-heading text-[1.375rem] text-text">
+                18:00 — Taina Sfântului Maslu
+              </p>
+            </div>
+
           </div>
 
-          <div className="border-l-4 border-[#4A5D3A] bg-[#F5F1E8] p-6 text-left">
-            <p className="text-[#5C4A35] leading-relaxed">
-              <strong className="text-[#2B1F14]">Pentru certitudine</strong>{" "}
-              privind programul slujbelor, vă rugăm să sunați la mănăstire la
-              numărul <a href="tel:+40763785579" className="text-[#6B1D2A] hover:underline">+40 763 785 579</a>.
+          {/* Nota de contact */}
+          <div className="mt-6 p-5 border-l-4 border-olive bg-secondary">
+            <p className="text-text-secondary text-[0.9375rem] max-w-none">
+              <strong className="text-text font-500">Pentru certitudine</strong>{" "}
+              privind programul slujbelor, vă rugăm să sunați la mănăstire:
             </p>
-            <p className="text-[#5C4A35] leading-relaxed mt-4">
-              Mănăstirea este deschisă pentru închinare zilnic între orele
-              <strong> 08:00–13:00</strong> și <strong>16:00–20:00</strong>.
-              Între orele 13:00 și 16:00 este timpul de liniște și rugăciune al obștii.
-            </p>
+            <div className="mt-3 space-y-1">
+              <p className="text-text-secondary text-[0.9375rem]">
+                Părintele Ghenadie Mogoi:{" "}
+                <a href="tel:+40763785574" className="text-grena font-body font-500 hover:underline">
+                  0763 785 574
+                </a>
+              </p>
+              <p className="text-text-secondary text-[0.9375rem]">
+                Maica Stareță Evghenia Arău:{" "}
+                <a href="tel:+40756361230" className="text-grena font-body font-500 hover:underline">
+                  +40 756 361 230
+                </a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <CrossSeparator />
+
+      {/* ═══ BANNER HRAM 5 MAI 2026 ═══ */}
+      <section id="hram-efrem" className="py-8 md:py-10">
+        <div className="container-page max-w-2xl">
+          <div className="relative overflow-hidden p-6 md:p-8 bg-grena/10 border border-grena/40 rounded-[4px]">
+            {/* Accent linie stânga */}
+            <div className="absolute left-0 top-0 bottom-0 w-1 bg-grena" aria-hidden="true" />
+
+            <div className="pl-4">
+              <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.14em] text-grena mb-2">
+                Praznic Apropiat
+              </p>
+              <h2 className="font-heading text-[1.5rem] md:text-[1.875rem] text-text mb-3 leading-snug">
+                🕊 Hramul Sfântului Efrem cel Nou
+              </h2>
+              <p className="font-heading text-[1.25rem] text-grena font-500 mb-4">
+                5 Mai 2026
+              </p>
+              <p className="text-text-secondary text-[0.9375rem] leading-relaxed max-w-none">
+                Toți credincioșii prezenți vor primi{" "}
+                <strong className="text-text font-500">iconițe și vată cu mir</strong>{" "}
+                de la Icoana Sfântului Efrem cel Nou din Kalimnos, Grecia.
+              </p>
+            </div>
           </div>
         </div>
       </section>

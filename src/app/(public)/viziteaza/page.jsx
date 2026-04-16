@@ -8,11 +8,9 @@ import StructuredData, {
   buildFAQPage,
 } from "@/components/StructuredData";
 
-/**
- * TODO: VERIFICĂ coordonatele exacte cu maica stareță înainte de lansare.
- */
-const LAT = 44.4675;
-const LNG = 28.4889;
+// Coordonatele clădirii principale a mănăstirii (lângă râul Târgușor / DC81)
+const LAT = 44.4712;
+const LNG = 28.4735;
 
 /* ─── SEO ─── */
 
@@ -178,13 +176,32 @@ export default function ViziteazaPage() {
             {/* Dreapta: Telefon */}
             <div>
               <h2 className="text-lg mb-4">Contact</h2>
-              <a
-                href="tel:+40763785579"
-                className="inline-flex items-center gap-3 text-[1.5rem] md:text-[1.75rem] font-heading font-500 text-text hover:text-grena transition-colors"
-              >
-                <PhoneIcon />
-                +40 763 785 579
-              </a>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.06em] text-olive mb-1">
+                    Părintele Ghenadie Mogoi
+                  </p>
+                  <a
+                    href="tel:+40763785574"
+                    className="inline-flex items-center gap-3 text-[1.375rem] md:text-[1.5rem] font-heading font-500 text-text hover:text-grena transition-colors"
+                  >
+                    <PhoneIcon />
+                    0763 785 574
+                  </a>
+                </div>
+                <div>
+                  <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.06em] text-olive mb-1">
+                    Maica Stareță Evghenia Arău
+                  </p>
+                  <a
+                    href="tel:+40756361230"
+                    className="inline-flex items-center gap-3 text-[1.375rem] md:text-[1.5rem] font-heading font-500 text-text hover:text-grena transition-colors"
+                  >
+                    <PhoneIcon />
+                    +40 756 361 230
+                  </a>
+                </div>
+              </div>
               <p className="mt-4 text-text-muted text-[0.8125rem] max-w-[40ch]">
                 Pentru pomelnice, spovedanie sau vizite de grup, vă rugăm să
                 sunați în prealabil.
@@ -203,7 +220,7 @@ export default function ViziteazaPage() {
           <MapWrapper
             lat={LAT}
             lng={LNG}
-            zoom={13}
+            zoom={15}
             className="h-[350px] md:h-[500px]"
           />
           <div className="mt-3 flex justify-end">
@@ -368,7 +385,40 @@ export default function ViziteazaPage() {
 
       <CrossSeparator />
 
-      {/* ═══ SECȚIUNEA 8 — CHEMARE LA VIAȚA MONAHALĂ ═══ */}
+      {/* ═══ SECȚIUNEA 8 — DONAȚII ═══ */}
+      <section id="donatii" className="py-8 md:py-12">
+        <div className="container-page max-w-xl">
+          <h2 className="text-lg mb-6 text-center">Donații</h2>
+
+          <div className="p-6 md:p-8 bg-secondary border border-border rounded-[4px]">
+            <p className="text-text-secondary text-[0.9375rem] leading-relaxed mb-6 max-w-none">
+              Dacă doriți să sprijiniți viața mănăstirii
+              prin donații bănești, puteți folosi contul de mai jos.
+              Orice ajutor este primit cu mulțumire și cu rugăciunea obștii.
+            </p>
+
+            <div className="p-5 bg-primary border border-border rounded-[4px]">
+              <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.1em] text-olive mb-3">
+                Cont donații
+              </p>
+              <p className="font-heading text-[1.1875rem] md:text-[1.375rem] text-text font-500 tracking-wide mb-1 break-all">
+                RO90CECECT1430RON0953968
+              </p>
+              <p className="text-text-secondary text-[0.9375rem]">
+                CEC Bank Constanța
+              </p>
+            </div>
+
+            <p className="mt-4 text-text-muted text-[0.8125rem] max-w-none">
+              Dumnezeu să plătească și să binecuvânteze pe cei ce ajută!
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <CrossSeparator />
+
+      {/* ═══ SECȚIUNEA 9 — CHEMARE LA VIAȚA MONAHALĂ ═══ */}
       <section className="py-8 md:py-12">
         <div className="container-page max-w-2xl">
           <div className="p-6 md:p-8 bg-stone/30 rounded-[4px] border border-border text-center">
@@ -385,11 +435,11 @@ export default function ViziteazaPage() {
               Pentru detalii, vorbește cu maica stareță.
             </p>
             <a
-              href="tel:+40763785579"
+              href="tel:+40756361230"
               className="inline-flex items-center gap-2 mt-4 text-[0.875rem] font-body font-500 text-olive hover:text-text transition-colors"
             >
               <PhoneIcon size={14} />
-              +40 763 785 579
+              +40 756 361 230
             </a>
           </div>
         </div>

@@ -4,13 +4,10 @@ import { useEffect, useRef } from "react";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 
-/**
- * TODO: VERIFICĂ coordonatele exacte cu maica stareță înainte de lansare.
- * Acestea sunt estimate din zona Gura Dobrogei, comuna Târgușor.
- */
-const DEFAULT_LAT = 44.4675;
-const DEFAULT_LNG = 28.4889;
-const DEFAULT_ZOOM = 13;
+// Coordonatele clădirii principale a mănăstirii (lângă râul Târgușor / DC81)
+const DEFAULT_LAT = 44.4712;
+const DEFAULT_LNG = 28.4735;
+const DEFAULT_ZOOM = 15;
 
 const TILE_URL = "https://tile.openstreetmap.org/{z}/{x}/{y}.png";
 const TILE_ATTRIBUTION =

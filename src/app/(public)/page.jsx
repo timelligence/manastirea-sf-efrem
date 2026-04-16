@@ -216,18 +216,36 @@ export default function HomePage() {
               Rânduiala săptămânii
             </h2>
 
-            <p className="text-text text-[1.0625rem] leading-relaxed text-center max-w-none">
-              Sfânta Liturghie se săvârșește duminica de la ora 9. Programul
-              detaliat al celorlalte zile, precum și al privegherilor de
-              praznice, va fi actualizat în curând. Pentru detalii sunați la{" "}
-              <a
-                href="tel:+40763785579"
-                className="text-grena font-body font-500 hover:text-text transition-colors duration-200"
-              >
-                +40 763 785 579
-              </a>
-              .
-            </p>
+            <div className="space-y-4 text-left">
+              <div className="flex gap-3 items-start">
+                <span className="text-gold font-heading text-[1rem] shrink-0">†</span>
+                <div>
+                  <span className="block text-text font-body font-500 text-[0.875rem] uppercase tracking-[0.06em] mb-0.5">Dimineața</span>
+                  <span className="text-text-secondary text-[1rem]">07:00 — Utrenia, Ceasul 1 (Marți, Joi, Sâmbătă: + Sf. Liturghie)</span>
+                </div>
+              </div>
+              <div className="flex gap-3 items-start">
+                <span className="text-gold font-heading text-[1rem] shrink-0">†</span>
+                <div>
+                  <span className="block text-text font-body font-500 text-[0.875rem] uppercase tracking-[0.06em] mb-0.5">Seara</span>
+                  <span className="text-text-secondary text-[1rem]">17:00 — Vecernia și Pavecernița Mică</span>
+                </div>
+              </div>
+              <div className="flex gap-3 items-start">
+                <span className="text-grena font-heading text-[1rem] shrink-0">†</span>
+                <div>
+                  <span className="block text-text font-body font-500 text-[0.875rem] uppercase tracking-[0.06em] mb-0.5">Duminica și de Sărbători</span>
+                  <span className="text-text-secondary text-[1rem]">09:00 — Ceasurile 3, 6, Dumnezeiasca Liturghie</span>
+                </div>
+              </div>
+              <div className="flex gap-3 items-start">
+                <span className="text-gold font-heading text-[1rem] shrink-0">†</span>
+                <div>
+                  <span className="block text-text font-body font-500 text-[0.875rem] uppercase tracking-[0.06em] mb-0.5">Prima Vineri din Lună</span>
+                  <span className="text-text-secondary text-[1rem]">18:00 — Taina Sfântului Maslu</span>
+                </div>
+              </div>
+            </div>
 
             <div className="mt-10 pt-8 border-t border-border text-center">
               <Link
