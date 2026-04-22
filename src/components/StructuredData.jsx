@@ -29,7 +29,7 @@ export function buildPlaceOfWorship() {
     description:
       "Mănăstire ortodoxă de maici cu viață de obște din Dobrogea Centrală, adăpostind moaștele Sf. Efrem cel Nou, Sf. Luca al Crimeei și Icoana Maicii Domnului Grabnic Ascultătoare.",
     url: BASE_URL,
-    telephone: "+40763785579",
+    telephone: "+40763785574",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Sat Gura Dobrogei",

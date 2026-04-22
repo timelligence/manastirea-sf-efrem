@@ -248,7 +248,7 @@ export default async function ProgramSlujbePage() {
 
       <CrossSeparator />
 
-      {/* ═══ BANNER HRAM 5 MAI 2026 ═══ */}
+      {/* ═══ BANNER HRAM 9 MAI 2026 ═══ */}
       <section id="hram-efrem" className="py-8 md:py-10">
         <div className="container-page max-w-2xl">
           <div className="relative overflow-hidden p-6 md:p-8 bg-grena/10 border border-grena/40 rounded-[4px]">
@@ -262,13 +262,21 @@ export default async function ProgramSlujbePage() {
               <h2 className="font-heading text-[1.5rem] md:text-[1.875rem] text-text mb-3 leading-snug">
                 🕊 Hramul Sfântului Efrem cel Nou
               </h2>
-              <p className="font-heading text-[1.25rem] text-grena font-500 mb-4">
-                5 Mai 2026
-              </p>
+              <div className="mb-4 space-y-1">
+                <p className="font-heading text-[1.125rem] text-text-secondary font-500">
+                  🕊 Pomenirea Sf. Efrem cel Nou: <span className="text-grena">5 Mai 2026</span>
+                </p>
+                <p className="font-heading text-[1.125rem] text-text-secondary font-500">
+                  ⛪ Sărbătoarea Hramului (cu IPS): <span className="text-grena">9 Mai 2026</span>
+                </p>
+              </div>
               <p className="text-text-secondary text-[0.9375rem] leading-relaxed max-w-none">
                 Toți credincioșii prezenți vor primi{" "}
                 <strong className="text-text font-500">iconițe și vată cu mir</strong>{" "}
                 de la Icoana Sfântului Efrem cel Nou din Kalimnos, Grecia.
+                <span className="block mt-2 font-500 text-text">
+                  Hramul va fi oficiat în prezența Înaltpreasfințitului, pe 9 Mai 2026.
+                </span>
               </p>
             </div>
           </div>

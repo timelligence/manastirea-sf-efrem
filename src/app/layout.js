@@ -68,7 +68,7 @@ const organizationSchema = {
   ],
   url: "https://manastireasfintilordionisiesiefrem.ro",
   logo: "https://manastireasfintilordionisiesiefrem.ro/images/og-default.png",
-  telephone: "+40763785579",
+  telephone: "+40763785574",
   address: {
     "@type": "PostalAddress",
     streetAddress: "Sat Gura Dobrogei",

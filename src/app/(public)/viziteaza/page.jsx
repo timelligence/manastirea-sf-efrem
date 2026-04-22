@@ -48,7 +48,7 @@ const placeOfWorshipSchema = {
     latitude: LAT,
     longitude: LNG,
   },
-  telephone: "+40763785579",
+  telephone: "+40763785574",
   openingHoursSpecification: [
     {
       "@type": "OpeningHoursSpecification",
@@ -102,7 +102,7 @@ const viziteazaFAQ = [
   {
     question: "Pot să rămân peste noapte la mănăstire?",
     answer:
-      "Da, mănăstirea oferă cazare pentru pelerini. Vă rugăm să sunați înainte la +40 763 785 579 pentru a verifica disponibilitatea.",
+      "Da, mănăstirea oferă cazare pentru pelerini. Vă rugăm să sunați înainte la +40 763 785 574 pentru a verifica disponibilitatea.",
   },
   {
     question: "Ce sfinte moaște se află la mănăstire?",

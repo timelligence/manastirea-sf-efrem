@@ -1,8 +1,11 @@
+import fs from "fs";
+import path from "path";
 import Link from "next/link";
 import Cross from "@/components/ui/Cross";
 import { CrossSeparator } from "@/components/ui/Cross";
 import Card from "@/components/ui/Card";
 import StructuredData, { buildBreadcrumbList } from "@/components/StructuredData";
+import LightboxGallery from "@/components/ui/LightboxGallery";
 
 /* ═══════════════════════════════════════════════════════════════
    SEO METADATA
@@ -36,6 +39,19 @@ export const metadata = {
    ═══════════════════════════════════════════════════════════════ */
 
 export default function DesprePage() {
+  const imagesDirectory = path.join(process.cwd(), "public", "images");
+  let imageFiles = [];
+  try {
+    imageFiles = fs.readdirSync(imagesDirectory);
+  } catch (err) {
+    console.error("Could not read images directory:", err);
+  }
+  
+  const galleryImages = imageFiles
+    .filter((file) => /\.(jpg|jpeg|png|webp)$/i.test(file))
+    .filter((file) => !file.includes("og-default"))
+    .map((file) => `/images/${file}`);
+
   return (
     <>
       <StructuredData
@@ -324,7 +340,27 @@ export default function DesprePage() {
       <CrossSeparator />
 
       {/* ─────────────────────────────────────────────────────────
-          7. CRUCE FINAL ȘI CTA SUBTIL
+          7. BOTEZURI, LOGODNE ȘI CUNUNII
+          ───────────────────────────────────────────────────────── */}
+      <section id="reguli-taine" className="py-10 md:py-16">
+        <div className="container-page">
+          <div className="max-w-[75ch] mx-auto text-center mb-10">
+            <h2 className="mb-6 uppercase text-grena text-[1.375rem] md:text-[1.75rem]">
+              Botezuri, logodne și cununii<br />la Mănăstirea Sfinților Dionisie și Efrem
+            </h2>
+            <p className="text-[1.0625rem] leading-relaxed text-text">
+              Venind întru întâmpinarea oricărei posibile solicitări în acest sens, aducem la cunoștința tuturor celor interesați fidelitatea neînclintită a Mănăstirii față de Hotărârea Sfântului Sinod nr. 311 din 28 februarie 2013, care stabilește fără echivoc <strong>interdicția oficierii de botezuri, logodne și cununii</strong> în bisericile așezămintelor monahale (mănăstiri și schituri) de pe întreg cuprinsul Patriarhiei Române.
+            </p>
+          </div>
+          
+          <LightboxGallery images={galleryImages} />
+        </div>
+      </section>
+
+      <CrossSeparator />
+
+      {/* ─────────────────────────────────────────────────────────
+          8. CRUCE FINAL ȘI CTA SUBTIL
           ───────────────────────────────────────────────────────── */}
       <section id="cta-final" className="py-10 md:py-14">
         <div className="container-page max-w-xl text-center">

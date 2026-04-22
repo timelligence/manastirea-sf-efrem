@@ -41,10 +41,10 @@ export default function Footer() {
               </p>
               <p className="max-w-none">
                 <a
-                  href="tel:+40763785579"
+                  href="tel:+40763785574"
                   className="hover:text-olive transition-colors duration-200"
                 >
-                  +40 763 785 579
+                  +40 763 785 574
                 </a>
               </p>
             </address>
