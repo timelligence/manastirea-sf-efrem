@@ -35,12 +35,16 @@ export const metadata = {
     siteName: "Mănăstirea Sf. Dionisie și Sf. Efrem cel Nou",
     images: [
       {
-        url: "/images/og-default.png",
+        url: "https://www.manastireasfintilordionisiesiefrem.ro/images/og-default.png",
         width: 1200,
         height: 630,
         alt: "Mănăstirea Sfinților Dionisie Exiguul și Efrem cel Nou — Târgușor, Constanța",
       },
     ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    images: ["https://www.manastireasfintilordionisiesiefrem.ro/images/og-default.png"],
   },
   alternates: {
     canonical: "/",
