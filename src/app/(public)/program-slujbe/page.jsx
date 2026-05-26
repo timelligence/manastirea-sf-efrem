@@ -74,21 +74,25 @@ const FALLBACK_PRAZNICE = [
 /* ─── Data fetching ─── */
 
 async function getPraznice() {
+  const yesterdayDate = new Date();
+  yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+  const yesterday = yesterdayDate.toISOString().split("T")[0];
+  const fallbackFiltrate = FALLBACK_PRAZNICE.filter(p => p.data >= yesterday);
+
   try {
-    if (!process.env.NEXT_PUBLIC_SUPABASE_URL) return FALLBACK_PRAZNICE;
+    if (!process.env.NEXT_PUBLIC_SUPABASE_URL) return fallbackFiltrate;
     const { createClient } = await import("@/lib/supabase/server");
     const supabase = await createClient();
-    const today = new Date().toISOString().split("T")[0];
     const { data, error } = await supabase
       .from("praznice")
       .select("*")
-      .gte("data", today)
+      .gte("data", yesterday)
       .order("data", { ascending: true })
       .limit(5);
     if (error) throw error;
-    return data || FALLBACK_PRAZNICE;
+    return data || fallbackFiltrate;
   } catch {
-    return FALLBACK_PRAZNICE;
+    return fallbackFiltrate;
   }
 }
 
@@ -166,6 +170,13 @@ function PraznicCard({ praznic }) {
 
 export default async function ProgramSlujbePage() {
   const praznice = await getPraznice();
+
+  const yesterdayDate = new Date();
+  yesterdayDate.setDate(yesterdayDate.getDate() - 1);
+  const yesterday_str = yesterdayDate.toISOString().split("T")[0];
+
+  const dataHram = "2026-05-09";
+  const showHram = new Date(dataHram) >= new Date(yesterday_str);
 
   return (
     <>
@@ -302,42 +313,46 @@ export default async function ProgramSlujbePage() {
 
       <CrossSeparator />
 
-      {/* ═══ BANNER HRAM 9 MAI 2026 ═══ */}
-      <section id="hram-efrem" className="py-8 md:py-10">
-        <div className="container-page max-w-2xl">
-          <div className="relative overflow-hidden p-6 md:p-8 bg-grena/10 border border-grena/40 rounded-[4px]">
-            {/* Accent linie stânga */}
-            <div className="absolute left-0 top-0 bottom-0 w-1 bg-grena" aria-hidden="true" />
+      {showHram && (
+        <>
+          {/* ═══ BANNER HRAM 9 MAI 2026 ═══ */}
+          <section id="hram-efrem" className="py-8 md:py-10">
+            <div className="container-page max-w-2xl">
+              <div className="relative overflow-hidden p-6 md:p-8 bg-grena/10 border border-grena/40 rounded-[4px]">
+                {/* Accent linie stânga */}
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-grena" aria-hidden="true" />
 
-            <div className="pl-4">
-              <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.14em] text-grena mb-2">
-                Praznic Apropiat
-              </p>
-              <h2 className="font-heading text-[1.5rem] md:text-[1.875rem] text-text mb-3 leading-snug">
-                🕊 Hramul Sfântului Efrem cel Nou
-              </h2>
-              <div className="mb-4 space-y-1">
-                <p className="font-heading text-[1.125rem] text-text-secondary font-500">
-                  🕊 Pomenirea Sf. Efrem cel Nou: <span className="text-grena">5 Mai 2026</span>
-                </p>
-                <p className="font-heading text-[1.125rem] text-text-secondary font-500">
-                  ⛪ Sărbătoarea Hramului (cu IPS): <span className="text-grena">9 Mai 2026</span>
-                </p>
+                <div className="pl-4">
+                  <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.14em] text-grena mb-2">
+                    Praznic Apropiat
+                  </p>
+                  <h2 className="font-heading text-[1.5rem] md:text-[1.875rem] text-text mb-3 leading-snug">
+                    🕊 Hramul Sfântului Efrem cel Nou
+                  </h2>
+                  <div className="mb-4 space-y-1">
+                    <p className="font-heading text-[1.125rem] text-text-secondary font-500">
+                      🕊 Pomenirea Sf. Efrem cel Nou: <span className="text-grena">5 Mai 2026</span>
+                    </p>
+                    <p className="font-heading text-[1.125rem] text-text-secondary font-500">
+                      ⛪ Sărbătoarea Hramului (cu IPS): <span className="text-grena">9 Mai 2026</span>
+                    </p>
+                  </div>
+                  <p className="text-text-secondary text-[0.9375rem] leading-relaxed max-w-none">
+                    Toți credincioșii prezenți vor primi{" "}
+                    <strong className="text-text font-500">iconițe și vată cu mir</strong>{" "}
+                    de la Icoana Sfântului Efrem cel Nou din Kalimnos, Grecia.
+                    <span className="block mt-2 font-500 text-text">
+                      Hramul va fi oficiat în prezența Înaltpreasfințitului, pe 9 Mai 2026.
+                    </span>
+                  </p>
+                </div>
               </div>
-              <p className="text-text-secondary text-[0.9375rem] leading-relaxed max-w-none">
-                Toți credincioșii prezenți vor primi{" "}
-                <strong className="text-text font-500">iconițe și vată cu mir</strong>{" "}
-                de la Icoana Sfântului Efrem cel Nou din Kalimnos, Grecia.
-                <span className="block mt-2 font-500 text-text">
-                  Hramul va fi oficiat în prezența Înaltpreasfințitului, pe 9 Mai 2026.
-                </span>
-              </p>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
 
-      <CrossSeparator />
+          <CrossSeparator />
+        </>
+      )}
 
       {/* ═══ PRAZNICE APROPIATE ═══ */}
       <section id="praznice" className="py-8 md:py-12">
@@ -346,8 +361,7 @@ export default async function ProgramSlujbePage() {
 
           {praznice.length === 0 ? (
             <p className="text-text-muted text-[0.9375rem]">
-              Momentan nu sunt praznice programate. Urmăriți pagina noastră de
-              Facebook pentru anunțuri.
+              Nu există praznice speciale programate în perioada următoare.
             </p>
           ) : (
             <div className="space-y-5">
