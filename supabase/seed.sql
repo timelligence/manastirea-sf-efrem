@@ -47,9 +47,9 @@ INSERT INTO praznice (data, nume, descriere_scurta, program_special, priveghere,
    true, '22:00', true);
 
 INSERT INTO praznice (data, nume, descriere_scurta, program_special, priveghere, ora_priveghere, dezlegare_peste) VALUES
-  ('2026-06-08', 'Rusaliile — Pogorârea Sfântului Duh',
-   'Praznic Împărătesc. Începutul postului Sfinților Apostoli.',
-   E'Duminică 8 iunie, ora 09:00 — Sfânta Liturghie\nLuni 9 iunie — Lunea Sfântului Duh',
+  ('2026-05-31', 'Pogorârea Sfântului Duh — Rusalii',
+   'Praznic Împărătesc. Pogorârea Sfântului Duh asupra Sfinților Apostoli. Începutul Postului Sfinților Apostoli Petru și Pavel.',
+   E'Duminică 31 mai, orele 09:00 — Dumnezeiasca Liturghie, Vecernia plecării genunchilor\n17:00 — Paraclisul Maicii Domnului\nLuni 1 iunie, orele 09:00 — Utrenia, Dumnezeiasca Liturghie\nDuminică și Luni mănăstirea va fi deschisă de la 08:00 la 20:00!',
    false, null, true);
 
 INSERT INTO praznice (data, nume, descriere_scurta, program_special, priveghere, ora_priveghere) VALUES

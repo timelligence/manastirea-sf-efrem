@@ -15,7 +15,61 @@ export const metadata = {
 
 /* ─── Date fallback praznice (când Supabase nu e configurat) ─── */
 
-const FALLBACK_PRAZNICE = [];
+const FALLBACK_PRAZNICE = [
+  {
+    id: "p1",
+    data: "2026-05-05",
+    nume: "Sf. Mare Mucenic Efrem cel Nou",
+    descriere_scurta: "Hramul mănăstirii. Sfânt grabnic ajutător în necazuri și boli.",
+    program_special: "Luni 4 mai, ora 22:00 — Priveghere\nMarți 5 mai, ora 09:00 — Ceasurile și Sfânta Liturghie",
+    priveghere: true,
+    ora_priveghere: "22:00:00",
+    dezlegare_peste: false,
+    este_hram: true
+  },
+  {
+    id: "p2",
+    data: "2026-05-31",
+    nume: "Pogorârea Sfântului Duh — Rusalii",
+    descriere_scurta: "Praznic Împărătesc. Pogorârea Sfântului Duh asupra Sfinților Apostoli. Începutul Postului Sfinților Apostoli Petru și Pavel.",
+    program_special: "Duminică 31 mai, orele 09:00 — Dumnezeiasca Liturghie, Vecernia plecării genunchilor\n17:00 — Paraclisul Maicii Domnului\nLuni 1 iunie, orele 09:00 — Utrenia, Dumnezeiasca Liturghie\nDuminică și Luni mănăstirea va fi deschisă de la 08:00 la 20:00!",
+    priveghere: false,
+    ora_priveghere: null,
+    dezlegare_peste: true,
+    este_hram: false
+  },
+  {
+    id: "p3",
+    data: "2026-08-15",
+    nume: "Adormirea Maicii Domnului",
+    descriere_scurta: "Praznicul Adormirii Preasfintei Născătoare de Dumnezeu.",
+    program_special: "Joi 14 august, ora 22:00 — Priveghere\nVineri 15 august, ora 09:00 — Sfânta Liturghie",
+    priveghere: true,
+    ora_priveghere: "22:00:00",
+    dezlegare_peste: false,
+    este_hram: false
+  },
+  {
+    id: "p4",
+    data: "2026-09-01",
+    nume: "Sf. Cuvios Dionisie Exiguul",
+    descriere_scurta: "Hramul mănăstirii. Anul nou bisericesc.",
+    program_special: "Duminică 31 august, ora 22:00 — Priveghere\nLuni 1 septembrie, ora 09:00 — Sfânta Liturghie",
+    priveghere: true,
+    ora_priveghere: "22:00:00",
+    este_hram: true
+  },
+  {
+    id: "p5",
+    data: "2026-12-25",
+    nume: "Nașterea Domnului",
+    descriere_scurta: "Praznic Împărătesc. Se dezleagă la toate.",
+    program_special: "Miercuri 24 decembrie, ora 22:00 — Priveghere\nJoi 25 decembrie, ora 09:00 — Sfânta Liturghie",
+    priveghere: true,
+    ora_priveghere: "22:00:00",
+    este_hram: false
+  }
+];
 
 /* ─── Data fetching ─── */
 
