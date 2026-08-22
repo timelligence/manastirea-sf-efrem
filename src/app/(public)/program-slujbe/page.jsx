@@ -54,7 +54,7 @@ const FALLBACK_PRAZNICE = [
     data: "2026-09-01",
     nume: "Sf. Cuvios Dionisie Exiguul",
     descriere_scurta: "Hramul mănăstirii. Anul nou bisericesc.",
-    program_special: "Duminică 31 august, ora 22:00 — Priveghere\nLuni 1 septembrie, ora 09:00 — Sfânta Liturghie",
+    program_special: "Duminică 30 august, ora 22:00 — Priveghere\nLuni 31 august, ora 09:00 — Sfânta Liturghie",
     priveghere: true,
     ora_priveghere: "22:00:00",
     este_hram: true
