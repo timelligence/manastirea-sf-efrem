@@ -160,7 +160,137 @@ export default function HomePage() {
 
 
       {/* ─────────────────────────────────────────────────────────
-          2. CUVÂNT DE BUN VENIT
+          2. ANUNȚ HRAM — Sfântul Dionisie Cel Smerit, 1 Sept 2026
+          ───────────────────────────────────────────────────────── */}
+      <section
+        id="anunt-hram"
+        aria-label="Invitație la Hramul Mănăstirii"
+        className="relative py-0 overflow-hidden"
+        style={{ background: "linear-gradient(135deg, #2b1f14 0%, #3d2a18 50%, #2b1f14 100%)" }}
+      >
+        {/* Borduri decorative sus/jos */}
+        <div
+          className="absolute inset-x-0 top-0 h-1"
+          style={{ background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }}
+          aria-hidden="true"
+        />
+        <div
+          className="absolute inset-x-0 bottom-0 h-1"
+          style={{ background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }}
+          aria-hidden="true"
+        />
+
+        <div className="mx-auto max-w-5xl px-6 py-14 md:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-10 lg:gap-16 items-center">
+
+            {/* Coloana stânga — titlu invitație */}
+            <div className="text-center lg:text-right">
+              <p
+                className="text-[0.75rem] uppercase tracking-[0.25em] font-body font-500 mb-4"
+                style={{ color: "#C9A84C" }}
+              >
+                Invitație
+              </p>
+              <h2
+                className="font-heading text-[2rem] md:text-[2.5rem] leading-[1.15] mb-2"
+                style={{ color: "#F5F1E8" }}
+              >
+                La Hramul Mănăstirii
+              </h2>
+              <p
+                className="font-heading italic text-[1.5rem] md:text-[1.875rem] leading-snug"
+                style={{ color: "#9B2335" }}
+              >
+                Sfântul Dionisie<br />Cel Smerit
+              </p>
+            </div>
+
+            {/* Separator central — cruce ornamentală */}
+            <div
+              className="hidden lg:flex flex-col items-center gap-3 shrink-0"
+              aria-hidden="true"
+            >
+              <div className="w-px h-16" style={{ background: "linear-gradient(to bottom, transparent, #C9A84C)" }} />
+              <Cross size={28} className="text-gold" />
+              <div className="w-px h-16" style={{ background: "linear-gradient(to top, transparent, #C9A84C)" }} />
+            </div>
+
+            {/* Coloana dreapta — dată și program */}
+            <div className="text-center lg:text-left">
+              {/* Data */}
+              <div
+                className="inline-block px-5 py-2 mb-7 border"
+                style={{ borderColor: "#C9A84C", color: "#C9A84C" }}
+              >
+                <span className="font-heading text-[1.0625rem] tracking-[0.08em] uppercase">
+                  1 Septembrie 2026
+                </span>
+              </div>
+
+              {/* Program */}
+              <ul className="space-y-4 text-left">
+                <li className="flex gap-3 items-start">
+                  <span className="font-heading text-[1rem] shrink-0 mt-0.5" style={{ color: "#C9A84C" }}>†</span>
+                  <div>
+                    <span className="block font-body font-500 text-[0.8125rem] uppercase tracking-[0.06em] mb-0.5" style={{ color: "#F5F1E8" }}>
+                      Orele 08:00
+                    </span>
+                    <span className="text-[0.9375rem]" style={{ color: "rgba(245,241,232,0.75)" }}>
+                      Primirea Ierarhului, IPS Teodosie
+                    </span>
+                  </div>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <span className="font-heading text-[1rem] shrink-0 mt-0.5" style={{ color: "#C9A84C" }}>†</span>
+                  <div>
+                    <span className="block font-body font-500 text-[0.8125rem] uppercase tracking-[0.06em] mb-0.5" style={{ color: "#F5F1E8" }}>
+                      Sfințirea Apei și a Icoanei
+                    </span>
+                    <span className="text-[0.9375rem]" style={{ color: "rgba(245,241,232,0.75)" }}>
+                      Sfântului Dionisie, ocrotitorul Mănăstirii noastre
+                    </span>
+                  </div>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <span className="font-heading text-[1rem] shrink-0 mt-0.5" style={{ color: "#C9A84C" }}>†</span>
+                  <div>
+                    <span className="block font-body font-500 text-[0.8125rem] uppercase tracking-[0.06em]" style={{ color: "#F5F1E8" }}>
+                      Dumnezeiasca Liturghie
+                    </span>
+                  </div>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <span className="font-heading text-[1rem] shrink-0 mt-0.5" style={{ color: "#C9A84C" }}>†</span>
+                  <div>
+                    <span className="block font-body font-500 text-[0.8125rem] uppercase tracking-[0.06em]" style={{ color: "#F5F1E8" }}>
+                      Agapa Frățească
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Închidere — îndemn */}
+          <div className="mt-10 lg:mt-14 text-center">
+            <div
+              className="inline-block w-24 h-px mb-6"
+              style={{ background: "linear-gradient(90deg, transparent, #C9A84C, transparent)" }}
+              aria-hidden="true"
+            />
+            <p
+              className="font-heading italic text-[1.375rem] md:text-[1.625rem]"
+              style={{ color: "#C9A84C" }}
+            >
+              Vă așteptăm cu drag!
+            </p>
+          </div>
+        </div>
+      </section>
+
+
+      {/* ─────────────────────────────────────────────────────────
+          3. CUVÂNT DE BUN VENIT
           ───────────────────────────────────────────────────────── */}
       <section id="bun-venit" className="py-20 md:py-28 bg-primary">
         <div className="mx-auto max-w-3xl px-6 text-center">
