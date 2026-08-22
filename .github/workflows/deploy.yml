@@ -1,0 +1,35 @@
+name: Deploy to Hetzner
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: SSH Deploy → Hetzner
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          port: 22
+          script_stop: true
+          script: |
+            set -e
+            cd /opt/manastire-sf-efrem
+
+            echo "→ git pull"
+            git pull origin main
+
+            echo "→ docker compose build & restart"
+            docker compose up -d --build
+
+            echo "→ health check"
+            sleep 5
+            curl -sf http://127.0.0.1:3015 > /dev/null && echo "✅ Site UP" || echo "⚠️  Site nu răspunde pe 3015"
