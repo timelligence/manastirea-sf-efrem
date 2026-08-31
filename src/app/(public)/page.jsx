@@ -195,7 +195,7 @@ export default function HomePage() {
                 className="font-heading text-[2rem] md:text-[2.5rem] leading-[1.15] mb-2"
                 style={{ color: "#F5F1E8" }}
               >
-                La Hramul Mănăstirii
+                Hramul Mănăstirii Noastre
               </h2>
               <p
                 className="font-heading italic text-[1.5rem] md:text-[1.875rem] leading-snug"
@@ -223,7 +223,7 @@ export default function HomePage() {
                 style={{ borderColor: "#C9A84C", color: "#C9A84C" }}
               >
                 <span className="font-heading text-[1.0625rem] tracking-[0.08em] uppercase">
-                  1 Septembrie 2026
+                  Luni spre Mar&#x21B;i &middot; 31 Aug &#x2192; 1 Sept 2026
                 </span>
               </div>
 
@@ -233,10 +233,10 @@ export default function HomePage() {
                   <span className="font-heading text-[1rem] shrink-0 mt-0.5" style={{ color: "#C9A84C" }}>†</span>
                   <div>
                     <span className="block font-body font-500 text-[0.8125rem] uppercase tracking-[0.06em] mb-0.5" style={{ color: "#F5F1E8" }}>
-                      Orele 08:00
+                      Orele 21:30 &#x2014; Priveghere de toat&#x103; noaptea
                     </span>
                     <span className="text-[0.9375rem]" style={{ color: "rgba(245,241,232,0.75)" }}>
-                      Primirea Ierarhului, IPS Teodosie
+                      Vecernia mare, Litia, Utrenia &#x15F;i Dumnezeiasca Liturghie
                     </span>
                   </div>
                 </li>
@@ -244,10 +244,10 @@ export default function HomePage() {
                   <span className="font-heading text-[1rem] shrink-0 mt-0.5" style={{ color: "#C9A84C" }}>†</span>
                   <div>
                     <span className="block font-body font-500 text-[0.8125rem] uppercase tracking-[0.06em] mb-0.5" style={{ color: "#F5F1E8" }}>
-                      Sfințirea Apei și a Icoanei
+                      Oficiat&#x103; de c&#x103;tre
                     </span>
                     <span className="text-[0.9375rem]" style={{ color: "rgba(245,241,232,0.75)" }}>
-                      Sfântului Dionisie, ocrotitorul Mănăstirii noastre
+                      IPS Teodosie, Arhiepiscopul Tomisului
                     </span>
                   </div>
                 </li>
@@ -255,15 +255,7 @@ export default function HomePage() {
                   <span className="font-heading text-[1rem] shrink-0 mt-0.5" style={{ color: "#C9A84C" }}>†</span>
                   <div>
                     <span className="block font-body font-500 text-[0.8125rem] uppercase tracking-[0.06em]" style={{ color: "#F5F1E8" }}>
-                      Dumnezeiasca Liturghie
-                    </span>
-                  </div>
-                </li>
-                <li className="flex gap-3 items-start">
-                  <span className="font-heading text-[1rem] shrink-0 mt-0.5" style={{ color: "#C9A84C" }}>†</span>
-                  <div>
-                    <span className="block font-body font-500 text-[0.8125rem] uppercase tracking-[0.06em]" style={{ color: "#F5F1E8" }}>
-                      Agapa Frățească
+                      Agapa Fr&#x103;&#x21B;easc&#x103;
                     </span>
                   </div>
                 </li>
