@@ -690,6 +690,7 @@ export default function HomePage() {
                   src="/images/aerial-zenital.jpg"
                   alt="Mănăstirea văzută de sus — vedere aeriană zenitală"
                   fill
+                  loading="eager"
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
