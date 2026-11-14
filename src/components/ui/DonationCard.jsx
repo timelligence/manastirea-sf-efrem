@@ -3,102 +3,75 @@
 import { useState, useRef } from "react";
 import Cross from "@/components/ui/Cross";
 
-export const DONATION_IBAN = "RO90CECECT1430RON0953968";
-export const DONATION_BANK = "Cont Deschis la CEC Bank Constanța";
-
-function copyTextToClipboard(text) {
-  // Fallback clasic și sigur cu textarea temporar (funcționează și pe HTTP și pe orice browser mobil)
-  const textArea = document.createElement("textarea");
-  textArea.value = text;
-  textArea.setAttribute("readonly", "");
-  textArea.style.position = "fixed";
-  textArea.style.top = "-9999px";
-  textArea.style.left = "-9999px";
-  textArea.style.opacity = "0";
-  document.body.appendChild(textArea);
-
-  const selection = document.getSelection();
-  if (selection) {
-    selection.removeAllRanges();
-  }
-
-  textArea.focus();
-  textArea.select();
-  textArea.setSelectionRange(0, text.length);
-
-  let success = false;
-  try {
-    success = document.execCommand("copy");
-  } catch {
-    success = false;
-  }
-
-  document.body.removeChild(textArea);
-  if (selection) {
-    selection.removeAllRanges();
-  }
-  return success;
-}
+const DONATION_IBAN = "RO90CECECT1430RON0953968";
+const DONATION_BANK = "Cont Deschis la CEC Bank Constanța";
 
 export default function DonationCard() {
   const [copied, setCopied] = useState(false);
+  const ibanInputRef = useRef(null);
   const timerRef = useRef(null);
 
-  async function handleCopy() {
-    const cleanIban = DONATION_IBAN.trim();
-    let copiedOk = false;
+  function handleCopy(e) {
+    if (e) {
+      e.preventDefault();
+    }
 
-    if (typeof navigator !== "undefined" && navigator.clipboard && window.isSecureContext) {
+    // 1. Selectăm și copiem sincron direct din input-ul vizibil (nu poate selecta niciodată alt text din pagină)
+    if (ibanInputRef.current) {
+      ibanInputRef.current.focus();
+      ibanInputRef.current.select();
+      ibanInputRef.current.setSelectionRange(0, DONATION_IBAN.length);
       try {
-        await navigator.clipboard.writeText(cleanIban);
-        copiedOk = true;
+        document.execCommand("copy");
       } catch {
-        copiedOk = false;
+        // Ignorăm eroarea dacă browserul folosește exclusiv Clipboard API
       }
     }
 
-    if (!copiedOk && typeof document !== "undefined") {
-      copiedOk = copyTextToClipboard(cleanIban);
+    // 2. Scriem și prin Clipboard API modern dacă este disponibil
+    if (typeof navigator !== "undefined" && navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(DONATION_IBAN).catch(() => {});
     }
 
-    // Declanșăm întotdeauna feedback-ul vizual la apăsare
+    // 3. Activăm sincron animația și starea de confirmare
     setCopied(true);
     if (timerRef.current) {
       clearTimeout(timerRef.current);
     }
     timerRef.current = setTimeout(() => {
       setCopied(false);
-    }, 2800);
+    }, 3000);
   }
 
   return (
     <div className="p-6 md:p-8 bg-secondary border border-border rounded-[4px]">
       <div className="flex items-center gap-2 mb-3">
         <Cross size={14} className="text-gold shrink-0" />
-        <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.12em] text-olive">
+        <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.12em] text-olive select-none">
           Sprijină Mănăstirea
         </p>
       </div>
 
-      <p className="text-text-secondary text-[0.9375rem] leading-relaxed mb-6 max-w-none">
+      <p className="text-text-secondary text-[0.9375rem] leading-relaxed mb-6 max-w-none select-none">
         Dacă doriți să sprijiniți viața și lucrarea mănăstirii prin donații
         bănești, puteți folosi contul de mai jos. Orice ajutor este primit cu
         mulțumire și cu rugăciunea obștii.
       </p>
 
       <div className="p-5 bg-primary border border-border rounded-[4px] flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-        <div>
+        <div className="flex-1 min-w-0">
           <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.08em] text-olive mb-1.5 select-none">
             {DONATION_BANK}
           </p>
-          <button
-            type="button"
+          <input
+            ref={ibanInputRef}
+            type="text"
+            readOnly
+            value={DONATION_IBAN}
             onClick={handleCopy}
-            title="Apasă pentru a copia doar codul IBAN"
-            className="text-left font-heading text-[1.1875rem] md:text-[1.375rem] text-text font-600 tracking-wide break-all hover:text-grena transition-colors duration-200 cursor-pointer"
-          >
-            {DONATION_IBAN}
-          </button>
+            aria-label="Cod IBAN pentru donații"
+            className="w-full bg-transparent border-0 p-0 m-0 font-heading text-[1.1875rem] md:text-[1.375rem] text-text font-600 tracking-wide focus:outline-none cursor-pointer"
+          />
         </div>
 
         <button
@@ -106,18 +79,13 @@ export default function DonationCard() {
           onClick={handleCopy}
           aria-live="polite"
           aria-label="Copiază contul IBAN"
-          className={`
-            inline-flex items-center justify-center gap-2
-            px-5 py-2.5 rounded-[4px]
-            text-[0.8125rem] font-body font-500
-            transition-all duration-300 ease-out
-            active:scale-95 shrink-0 cursor-pointer
-            ${
-              copied
-                ? "bg-olive text-[#F5F1E8] shadow-sm scale-[1.03]"
-                : "bg-grena text-[#F5F1E8] hover:bg-[#7a2532]"
-            }
-          `}
+          style={{
+            backgroundColor: copied ? "#4A5D3A" : "#6B1D2A",
+            color: "#F5F1E8",
+            transform: copied ? "scale(1.04)" : "scale(1)",
+            transition: "all 0.25s ease",
+          }}
+          className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-[4px] text-[0.8125rem] font-body font-500 shrink-0 cursor-pointer select-none shadow-sm"
         >
           {copied ? (
             <>
@@ -127,7 +95,7 @@ export default function DonationCard() {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                strokeWidth="2.2"
+                strokeWidth="2.5"
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 className="shrink-0"
@@ -161,15 +129,18 @@ export default function DonationCard() {
       </div>
 
       {copied && (
-        <p className="mt-3 text-[0.8125rem] font-body font-500 text-olive flex items-center gap-1.5 transition-opacity duration-200">
+        <div
+          style={{ color: "#4A5D3A" }}
+          className="mt-3 text-[0.8125rem] font-body font-500 flex items-center gap-1.5 select-none"
+        >
           <span>✓</span>
           <span>
-            Codul IBAN <strong>{DONATION_IBAN}</strong> a fost copiat în clipboard.
+            S-a copiat în clipboard: <strong>{DONATION_IBAN}</strong>
           </span>
-        </p>
+        </div>
       )}
 
-      <p className="mt-4 text-text-muted text-[0.8125rem] italic max-w-none">
+      <p className="mt-4 text-text-muted text-[0.8125rem] italic max-w-none select-none">
         Dumnezeu să plătească și să binecuvânteze pe cei ce ajută!
       </p>
     </div>
