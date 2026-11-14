@@ -99,11 +99,11 @@ export default function Footer() {
               </div>
 
               <div className="pt-2 border-t border-[#BDB294]">
-                <p className="font-heading text-[0.8125rem] text-text-muted mb-1">
+                <p className="font-heading text-[0.8125rem] text-text-muted mb-1 select-none">
                   Cont Deschis la CEC Bank Constanța:
                 </p>
-                <p className="font-heading text-[0.9375rem] text-text font-600 tracking-wide select-all">
-                  RO90CECECT1430RON0953968
+                <p className="font-heading text-[0.9375rem] text-text font-600 tracking-wide">
+                  <span className="select-all">RO90CECECT1430RON0953968</span>
                 </p>
               </div>
             </div>
