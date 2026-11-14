@@ -17,21 +17,21 @@ import Card from "@/components/ui/Card";
 const FALLBACK_POSTS = [
   {
     id: "1",
-    text: "Praznicul Sfântului Mare Mucenic Efrem cel Nou — 5 mai. Vă așteptăm la hramul mănăstirii cu rugăciune, Sfânta Liturghie și privegherea din ajun.",
-    date: "2026-05-01",
-    url: "https://www.facebook.com/manastirea.sfefrem",
+    text: "Program pentru Sărbătoarea Sfântului Apostol Andrei: Duminică 29 nov. (09:00 Dumnezeiasca Liturghie; 17:00 Paraclisul Maicii Domnului), Luni 30 Noiembrie — Sf. Ap. Andrei (08:45 Acatistul Sf. Andrei, Dumnezeiasca Liturghie, Agapă frățească), Marți 1 Decembrie (08:00 Dumnezeiasca Liturghie). Deschis 08:00–19:00.",
+    date: "2026-11-15",
+    url: "https://www.facebook.com/ManastireaDionisieEfrem",
   },
   {
     id: "2",
-    text: "Sfântul Cuvios Dionisie cel Smerit — 1 septembrie, începutul Indictionului bisericesc. Primul hram al mănăstirii noastre.",
-    date: "2025-08-28",
-    url: "https://www.facebook.com/manastirea.sfefrem",
+    text: "Duminică 15 Noiembrie, începutul Postului „Nașterii Domnului”. Duminica a 24 după Rusalii, pomenirea Sfântului Cuvios Paisie de la Neamț. Orele 09:00 Ceasurile 3, 6, Dumnezeiasca Liturghie, rugăciuni de dezlegare și molitfe. Orele 17:00 Paraclisul Maicii Domnului.",
+    date: "2026-11-14",
+    url: "https://www.facebook.com/ManastireaDionisieEfrem",
   },
   {
     id: "3",
     text: "Paraclisul Maicii Domnului se săvârșește în fiecare duminică, de la ora 17:00. Vă așteptăm cu dragoste.",
-    date: "2025-07-15",
-    url: "https://www.facebook.com/manastirea.sfefrem",
+    date: "2026-09-01",
+    url: "https://www.facebook.com/ManastireaDionisieEfrem",
   },
 ];
 
@@ -111,7 +111,7 @@ export default function FacebookFeed({ posts }) {
         {/* Link general */}
         <div className="text-center mt-6">
           <a
-            href="https://www.facebook.com/manastirea.sfefrem"
+            href="https://www.facebook.com/ManastireaDionisieEfrem"
             target="_blank"
             rel="noopener noreferrer"
             className="

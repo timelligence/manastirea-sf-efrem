@@ -82,7 +82,7 @@ const organizationSchema = {
     addressCountry: "RO",
   },
   sameAs: [
-    "https://www.facebook.com/manastirea.sfefrem", // TODO: confirma URL exact
+    "https://www.facebook.com/ManastireaDionisieEfrem",
   ],
 };
 

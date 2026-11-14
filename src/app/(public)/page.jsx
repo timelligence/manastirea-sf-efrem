@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Cross from "@/components/ui/Cross";
 import { CrossSeparator } from "@/components/ui/Cross";
+import DonationCard from "@/components/ui/DonationCard";
 import FacebookFeed from "@/components/FacebookFeed";
 import StructuredData, { buildPlaceOfWorship } from "@/components/StructuredData";
 
@@ -160,11 +161,11 @@ export default function HomePage() {
 
 
       {/* ─────────────────────────────────────────────────────────
-          2. ANUNȚ HRAM — Sfântul Dionisie Cel Smerit, 1 Sept 2026
+          2. ANUNȚ PROGRAM SPECIAL — Noiembrie & Sf. Apostol Andrei
           ───────────────────────────────────────────────────────── */}
       <section
         id="anunt-hram"
-        aria-label="Invitație la Hramul Mănăstirii"
+        aria-label="Program special slujbe și sărbători"
         className="relative py-0 overflow-hidden"
         style={{ background: "linear-gradient(135deg, #2b1f14 0%, #3d2a18 50%, #2b1f14 100%)" }}
       >
@@ -181,62 +182,41 @@ export default function HomePage() {
         />
 
         <div className="mx-auto max-w-5xl px-6 py-14 md:py-20">
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-10 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto_1fr] gap-10 lg:gap-14 items-start">
 
-            {/* Coloana stânga — titlu invitație */}
-            <div className="text-center lg:text-right">
-              <p
-                className="text-[0.75rem] uppercase tracking-[0.25em] font-body font-500 mb-4"
-                style={{ color: "#C9A84C" }}
-              >
-                Invitație
-              </p>
-              <h2
-                className="font-heading text-[2rem] md:text-[2.5rem] leading-[1.15] mb-2"
-                style={{ color: "#F5F1E8" }}
-              >
-                Hramul Mănăstirii Noastre
-              </h2>
-              <p
-                className="font-heading italic text-[1.5rem] md:text-[1.875rem] leading-snug"
-                style={{ color: "#9B2335" }}
-              >
-                Sfântul Dionisie<br />Cel Smerit
-              </p>
-            </div>
-
-            {/* Separator central — cruce ornamentală */}
-            <div
-              className="hidden lg:flex flex-col items-center gap-3 shrink-0"
-              aria-hidden="true"
-            >
-              <div className="w-px h-16" style={{ background: "linear-gradient(to bottom, transparent, #C9A84C)" }} />
-              <Cross size={28} className="text-gold" />
-              <div className="w-px h-16" style={{ background: "linear-gradient(to top, transparent, #C9A84C)" }} />
-            </div>
-
-            {/* Coloana dreapta — dată și program */}
-            <div className="text-center lg:text-left">
-              {/* Data */}
+            {/* Coloana stânga — Duminică 15 Noiembrie */}
+            <div className="text-left">
               <div
-                className="inline-block px-5 py-2 mb-7 border"
+                className="inline-block px-4 py-1.5 mb-5 border"
                 style={{ borderColor: "#C9A84C", color: "#C9A84C" }}
               >
-                <span className="font-heading text-[1.0625rem] tracking-[0.08em] uppercase">
-                  Luni spre Mar&#x21B;i &middot; 31 Aug &#x2192; 1 Sept 2026
+                <span className="font-heading text-[1rem] tracking-[0.08em] uppercase">
+                  Duminică, 15 Noiembrie
                 </span>
               </div>
 
-              {/* Program */}
+              <h2
+                className="font-heading text-[1.625rem] md:text-[2rem] leading-[1.2] mb-2"
+                style={{ color: "#F5F1E8" }}
+              >
+                Începutul Postului „Nașterii Domnului”
+              </h2>
+              <p
+                className="font-heading italic text-[1.125rem] md:text-[1.25rem] leading-snug mb-6"
+                style={{ color: "#C9A84C" }}
+              >
+                Duminica a 24-a după Rusalii, pomenirea Sfântului Cuvios Paisie de la Neamț
+              </p>
+
               <ul className="space-y-4 text-left">
                 <li className="flex gap-3 items-start">
                   <span className="font-heading text-[1rem] shrink-0 mt-0.5" style={{ color: "#C9A84C" }}>†</span>
                   <div>
                     <span className="block font-body font-500 text-[0.8125rem] uppercase tracking-[0.06em] mb-0.5" style={{ color: "#F5F1E8" }}>
-                      Orele 21:30 &#x2014; Priveghere de toat&#x103; noaptea
+                      Orele 09:00
                     </span>
-                    <span className="text-[0.9375rem]" style={{ color: "rgba(245,241,232,0.75)" }}>
-                      Vecernia mare, Litia, Utrenia &#x15F;i Dumnezeiasca Liturghie
+                    <span className="text-[0.9375rem]" style={{ color: "rgba(245,241,232,0.8)" }}>
+                      Ceasurile 3, 6, Dumnezeiasca Liturghie, rugăciuni de dezlegare și molitfe
                     </span>
                   </div>
                 </li>
@@ -244,22 +224,89 @@ export default function HomePage() {
                   <span className="font-heading text-[1rem] shrink-0 mt-0.5" style={{ color: "#C9A84C" }}>†</span>
                   <div>
                     <span className="block font-body font-500 text-[0.8125rem] uppercase tracking-[0.06em] mb-0.5" style={{ color: "#F5F1E8" }}>
-                      Oficiat&#x103; de c&#x103;tre
+                      Orele 17:00
                     </span>
-                    <span className="text-[0.9375rem]" style={{ color: "rgba(245,241,232,0.75)" }}>
-                      IPS Teodosie, Arhiepiscopul Tomisului
+                    <span className="text-[0.9375rem]" style={{ color: "rgba(245,241,232,0.8)" }}>
+                      Paraclisul Maicii Domnului
+                    </span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            {/* Separator central — cruce ornamentală */}
+            <div
+              className="hidden lg:flex flex-col items-center gap-3 shrink-0 self-center"
+              aria-hidden="true"
+            >
+              <div className="w-px h-24" style={{ background: "linear-gradient(to bottom, transparent, #C9A84C)" }} />
+              <Cross size={28} className="text-gold" />
+              <div className="w-px h-24" style={{ background: "linear-gradient(to top, transparent, #C9A84C)" }} />
+            </div>
+
+            {/* Coloana dreapta — Sărbătoarea Sfântului Apostol Andrei */}
+            <div className="text-left">
+              <div
+                className="inline-block px-4 py-1.5 mb-5 border"
+                style={{ borderColor: "#C9A84C", color: "#C9A84C" }}
+              >
+                <span className="font-heading text-[1rem] tracking-[0.08em] uppercase">
+                  29 Noiembrie – 1 Decembrie
+                </span>
+              </div>
+
+              <h2
+                className="font-heading text-[1.625rem] md:text-[2rem] leading-[1.2] mb-6"
+                style={{ color: "#F5F1E8" }}
+              >
+                Program pentru Sărbătoarea Sfântului Apostol Andrei
+              </h2>
+
+              <ul className="space-y-4 text-left">
+                <li className="flex gap-3 items-start">
+                  <span className="font-heading text-[1rem] shrink-0 mt-0.5" style={{ color: "#C9A84C" }}>†</span>
+                  <div>
+                    <span className="block font-body font-500 text-[0.8125rem] uppercase tracking-[0.06em] mb-0.5" style={{ color: "#C9A84C" }}>
+                      Duminică, 29 nov.
+                    </span>
+                    <span className="block text-[0.9375rem]" style={{ color: "rgba(245,241,232,0.85)" }}>
+                      <strong>Ora 09:00</strong> — Ceasurile 3, 6, Dumnezeiasca Liturghie
+                    </span>
+                    <span className="block text-[0.9375rem] mt-0.5" style={{ color: "rgba(245,241,232,0.85)" }}>
+                      <strong>Orele 17:00</strong> — Paraclisul Maicii Domnului, rugăciuni de dezlegare și de sănătate
                     </span>
                   </div>
                 </li>
                 <li className="flex gap-3 items-start">
                   <span className="font-heading text-[1rem] shrink-0 mt-0.5" style={{ color: "#C9A84C" }}>†</span>
                   <div>
-                    <span className="block font-body font-500 text-[0.8125rem] uppercase tracking-[0.06em]" style={{ color: "#F5F1E8" }}>
-                      Agapa Fr&#x103;&#x21B;easc&#x103;
+                    <span className="block font-body font-500 text-[0.8125rem] uppercase tracking-[0.06em] mb-0.5" style={{ color: "#C9A84C" }}>
+                      Luni, 30 Noiembrie (Sf. Ap. Andrei)
+                    </span>
+                    <span className="block text-[0.9375rem]" style={{ color: "rgba(245,241,232,0.85)" }}>
+                      <strong>08:45</strong> — Acatistul Sf. Andrei, Dumnezeiasca Liturghie, Agapă frățească
+                    </span>
+                  </div>
+                </li>
+                <li className="flex gap-3 items-start">
+                  <span className="font-heading text-[1rem] shrink-0 mt-0.5" style={{ color: "#C9A84C" }}>†</span>
+                  <div>
+                    <span className="block font-body font-500 text-[0.8125rem] uppercase tracking-[0.06em] mb-0.5" style={{ color: "#C9A84C" }}>
+                      Marți, 1 Decembrie
+                    </span>
+                    <span className="block text-[0.9375rem]" style={{ color: "rgba(245,241,232,0.85)" }}>
+                      <strong>08:00</strong> — Dumnezeiasca Liturghie
                     </span>
                   </div>
                 </li>
               </ul>
+
+              <div
+                className="mt-5 px-4 py-3 border text-[0.875rem]"
+                style={{ borderColor: "rgba(201,168,76,0.45)", color: "#F5F1E8", backgroundColor: "rgba(201,168,76,0.08)" }}
+              >
+                <strong>În toate cele 3 zile</strong> Mănăstirea va fi deschisă de la <strong>08:00 la 19:00</strong>
+              </div>
             </div>
           </div>
 
@@ -274,7 +321,7 @@ export default function HomePage() {
               className="font-heading italic text-[1.375rem] md:text-[1.625rem]"
               style={{ color: "#C9A84C" }}
             >
-              Vă așteptăm cu drag!
+              La mulți ani tuturor românilor, vă așteptăm cu drag!
             </p>
           </div>
         </div>
@@ -656,7 +703,25 @@ export default function HomePage() {
 
 
       {/* ─────────────────────────────────────────────────────────
-          8. FACEBOOK FEED
+          8. DONAȚII — Sprijină Mănăstirea
+          ───────────────────────────────────────────────────────── */}
+      <section id="donatii" className="py-16 md:py-24">
+        <div className="mx-auto max-w-2xl px-6">
+          <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.12em] text-olive text-center mb-3">
+            Dar din dar
+          </p>
+          <h2 className="font-heading text-[2rem] md:text-[2.5rem] text-text text-center mb-10">
+            Donații pentru Mănăstire
+          </h2>
+          <DonationCard />
+        </div>
+      </section>
+
+      <CrossSeparator />
+
+
+      {/* ─────────────────────────────────────────────────────────
+          9. FACEBOOK FEED
           ───────────────────────────────────────────────────────── */}
       <section className="py-20 md:py-28 bg-secondary/50">
         <FacebookFeed />

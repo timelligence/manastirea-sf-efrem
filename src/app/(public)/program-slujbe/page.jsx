@@ -61,6 +61,30 @@ const FALLBACK_PRAZNICE = [
   },
   {
     id: "p5",
+    data: "2026-11-15",
+    data_afisata: "Duminică, 15 noiembrie 2026",
+    nume: "Începutul Postului „Nașterii Domnului” · Sf. Cuvios Paisie de la Neamț",
+    descriere_scurta: "Duminica a 24-a după Rusalii, pomenirea Sfântului Cuvios Paisie de la Neamț.",
+    program_special: "Orele 09:00 — Ceasurile 3, 6, Dumnezeiasca Liturghie, rugăciuni de dezlegare și molitfe\nOrele 17:00 — Paraclisul Maicii Domnului",
+    priveghere: false,
+    ora_priveghere: null,
+    dezlegare_peste: false,
+    este_hram: false
+  },
+  {
+    id: "p6",
+    data: "2026-12-01",
+    data_afisata: "29 noiembrie – 1 decembrie 2026",
+    nume: "Program pentru Sărbătoarea Sfântului Apostol Andrei",
+    descriere_scurta: "Sărbătoarea Sfântului Apostol Andrei, Ocrotitorul României, și Ziua Națională. La mulți ani tuturor românilor, vă așteptăm cu drag!",
+    program_special: "Duminică, 29 noiembrie:\n• Ora 09:00 — Ceasurile 3, 6, Dumnezeiasca Liturghie\n• Orele 17:00 — Paraclisul Maicii Domnului, rugăciuni de dezlegare și de sănătate\n\nLuni, 30 Noiembrie (Sf. Ap. Andrei):\n• Ora 08:45 — Acatistul Sf. Andrei, Dumnezeiasca Liturghie, Agapă frățească\n\nMarți, 1 Decembrie:\n• Ora 08:00 — Dumnezeiasca Liturghie\n\nÎn toate cele 3 zile Mănăstirea va fi deschisă de la 08:00 la 19:00!",
+    priveghere: false,
+    ora_priveghere: null,
+    dezlegare_peste: true,
+    este_hram: false
+  },
+  {
+    id: "p7",
     data: "2026-12-25",
     nume: "Nașterea Domnului",
     descriere_scurta: "Praznic Împărătesc. Se dezleagă la toate.",
@@ -118,7 +142,7 @@ function PraznicCard({ praznic }) {
   return (
     <Card as="article" className={praznic.este_hram ? "border-grena" : ""}>
       <span className="font-heading text-[1.0625rem] font-500 text-text-muted block mb-1">
-        {formatData(praznic.data)}
+        {praznic.data_afisata || formatData(praznic.data)}
       </span>
       <h3
         className={`text-lg ${praznic.este_hram ? "text-grena" : "text-text"}`}

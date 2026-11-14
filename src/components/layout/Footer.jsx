@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { label: "Sfinte Moaște", href: "/sfinte-moaste" },
   { label: "Cuvinte", href: "/noutati" },
   { label: "Vizitează", href: "/viziteaza" },
+  { label: "Donații", href: "/viziteaza#donatii" },
 ];
 
 export default function Footer() {
@@ -76,7 +77,7 @@ export default function Footer() {
             </h3>
             <div className="space-y-4 text-[0.875rem] text-text-secondary">
               <a
-                href="https://www.facebook.com/"
+                href="https://www.facebook.com/ManastireaDionisieEfrem"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 hover:text-olive transition-colors duration-200"
@@ -94,6 +95,15 @@ export default function Footer() {
                 <p className="text-grena font-500 leading-snug">
                   1 Septembrie &mdash; Sf. Dionisie Exiguul<br />
                   5 Mai &mdash; Sf. Efrem cel Nou
+                </p>
+              </div>
+
+              <div className="pt-2 border-t border-[#BDB294]">
+                <p className="font-heading text-[0.8125rem] text-text-muted mb-1">
+                  Cont Deschis la CEC Bank Constanța:
+                </p>
+                <p className="font-heading text-[0.9375rem] text-text font-600 tracking-wide select-all">
+                  RO90CECECT1430RON0953968
                 </p>
               </div>
             </div>

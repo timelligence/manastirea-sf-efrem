@@ -61,8 +61,20 @@ INSERT INTO praznice (data, nume, descriere_scurta, program_special, priveghere,
 INSERT INTO praznice (data, nume, descriere_scurta, program_special, priveghere, ora_priveghere, este_hram) VALUES
   ('2026-09-01', 'Sf. Cuvios Dionisie Exiguul',
    'Hramul mănăstirii. Anul nou bisericesc.',
-   E'Duminică 31 august, ora 22:00 — Priveghere\nLuni 1 septembrie, ora 09:00 — Sfânta Liturghie',
-   true, '22:00', true);
+   E'Luni 31 august, ora 21:30 — Priveghere de toată noaptea\n(Vecernie mare, Litie, Utrenie și Dumnezeiasca Liturghie)\nOficiată de IPS Teodosie, Arhiepiscopul Tomisului',
+   true, '21:30', true);
+
+INSERT INTO praznice (data, nume, descriere_scurta, program_special, priveghere, ora_priveghere, dezlegare_peste) VALUES
+  ('2026-11-15', 'Începutul Postului „Nașterii Domnului” · Sf. Cuvios Paisie de la Neamț',
+   'Duminica a 24-a după Rusalii, pomenirea Sfântului Cuvios Paisie de la Neamț.',
+   E'Orele 09:00 — Ceasurile 3, 6, Dumnezeiasca Liturghie, rugăciuni de dezlegare și molitfe\nOrele 17:00 — Paraclisul Maicii Domnului',
+   false, null, false);
+
+INSERT INTO praznice (data, nume, descriere_scurta, program_special, priveghere, ora_priveghere, dezlegare_peste) VALUES
+  ('2026-12-01', 'Program pentru Sărbătoarea Sfântului Apostol Andrei',
+   'Sărbătoarea Sfântului Apostol Andrei, Ocrotitorul României, și Ziua Națională. La mulți ani tuturor românilor, vă așteptăm cu drag!',
+   E'Duminică, 29 noiembrie:\n• Ora 09:00 — Ceasurile 3, 6, Dumnezeiasca Liturghie\n• Orele 17:00 — Paraclisul Maicii Domnului, rugăciuni de dezlegare și de sănătate\n\nLuni, 30 Noiembrie (Sf. Ap. Andrei):\n• Ora 08:45 — Acatistul Sf. Andrei, Dumnezeiasca Liturghie, Agapă frățească\n\nMarți, 1 Decembrie:\n• Ora 08:00 — Dumnezeiasca Liturghie\n\nÎn toate cele 3 zile Mănăstirea va fi deschisă de la 08:00 la 19:00!',
+   false, null, true);
 
 INSERT INTO praznice (data, nume, descriere_scurta, program_special, priveghere, ora_priveghere) VALUES
   ('2026-12-25', 'Nașterea Domnului',

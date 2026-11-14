@@ -2,6 +2,7 @@ import Link from "next/link";
 import Cross from "@/components/ui/Cross";
 import { CrossSeparator } from "@/components/ui/Cross";
 import Card from "@/components/ui/Card";
+import DonationCard from "@/components/ui/DonationCard";
 import MapWrapper from "@/components/MapWrapper";
 import StructuredData, {
   buildBreadcrumbList,
@@ -389,30 +390,7 @@ export default function ViziteazaPage() {
       <section id="donatii" className="py-8 md:py-12">
         <div className="container-page max-w-xl">
           <h2 className="text-lg mb-6 text-center">Donații</h2>
-
-          <div className="p-6 md:p-8 bg-secondary border border-border rounded-[4px]">
-            <p className="text-text-secondary text-[0.9375rem] leading-relaxed mb-6 max-w-none">
-              Dacă doriți să sprijiniți viața mănăstirii
-              prin donații bănești, puteți folosi contul de mai jos.
-              Orice ajutor este primit cu mulțumire și cu rugăciunea obștii.
-            </p>
-
-            <div className="p-5 bg-primary border border-border rounded-[4px]">
-              <p className="text-[0.8125rem] font-body font-500 uppercase tracking-[0.1em] text-olive mb-3">
-                Cont donații
-              </p>
-              <p className="font-heading text-[1.1875rem] md:text-[1.375rem] text-text font-500 tracking-wide mb-1 break-all">
-                RO90CECECT1430RON0953968
-              </p>
-              <p className="text-text-secondary text-[0.9375rem]">
-                CEC Bank Constanța
-              </p>
-            </div>
-
-            <p className="mt-4 text-text-muted text-[0.8125rem] max-w-none">
-              Dumnezeu să plătească și să binecuvânteze pe cei ce ajută!
-            </p>
-          </div>
+          <DonationCard />
         </div>
       </section>
 
