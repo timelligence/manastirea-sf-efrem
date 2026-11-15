@@ -20,16 +20,7 @@ jobs:
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           port: 22
           script_stop: true
-          script: |
-            set -e
-            cd /opt/manastire-sf-efrem
-
-            echo "→ git pull"
-            git pull origin main
-
-            echo "→ docker compose build & restart"
-            docker compose up -d --build
-
-            echo "→ health check"
-            sleep 5
-            curl -sf http://127.0.0.1:3015 > /dev/null && echo "✅ Site UP" || echo "⚠️  Site nu răspunde pe 3015"
+          command_timeout: 15m
+          # Serverul rulează doar /usr/local/bin/deploy-manastire.sh (forced command);
+          # textul de mai jos e ignorat, dar `script` e input obligatoriu.
+          script: deploy

@@ -11,5 +11,5 @@ services:
       - "127.0.0.1:3015:3000"
     environment:
       - NODE_ENV=production
-      - NEXT_PUBLIC_SITE_URL=https://manastire.clickstanga.ro
-      - NEXT_PUBLIC_SITE_STATUS=draft
+      - NEXT_PUBLIC_SITE_URL=https://manastireasfintilordionisiesiefrem.ro
+      - NEXT_PUBLIC_SITE_STATUS=live

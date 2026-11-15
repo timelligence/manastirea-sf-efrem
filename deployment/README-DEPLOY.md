@@ -51,21 +51,23 @@ sudo systemctl reload nginx
 curl -I https://manastire.clickstanga.ro
 ```
 
-## Actualizare
+## Actualizare (Deploy automat)
 
-```bash
-cd /opt/manastire-sf-efrem
-git pull
-docker compose up -d --build
-```
+Deploy-ul se face automat la push pe `main` prin **GitHub Actions** (`.github/workflows/deploy.yml`):
+
+1. GitHub Actions se conectează prin SSH ca user `gh-deploy`.
+2. Cheia SSH declanșează automat forced command-ul `/usr/local/bin/deploy-manastire.sh` pe server:
+   - `git fetch` + `git reset --hard origin/main`
+   - `docker compose build` + `docker compose up -d`
+   - Health check pe `http://127.0.0.1:3015` cu retry.
 
 ## Variabile de mediu
 
 | Variabilă | Valoare | Descriere |
 |-----------|---------|-----------|
 | `NODE_ENV` | `production` | Mod producție |
-| `NEXT_PUBLIC_SITE_URL` | `https://manastire.clickstanga.ro` | URL canonic |
-| `NEXT_PUBLIC_SITE_STATUS` | `draft` | Arată banner draft |
+| `NEXT_PUBLIC_SITE_URL` | `https://manastireasfintilordionisiesiefrem.ro` | URL canonic |
+| `NEXT_PUBLIC_SITE_STATUS` | `live` | Status site (`live` / `draft`) |
 
 ## Porturi folosite pe VPS
 
